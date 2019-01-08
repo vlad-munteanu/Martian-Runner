@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class SKStickMan: SKSpriteNode {
-    
+
     init() {
         
         super.init(texture: SKTexture(imageNamed: "1"), color: UIColor.clear, size: CGSize(width: 80,height: 90))

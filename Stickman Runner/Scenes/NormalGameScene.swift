@@ -16,7 +16,8 @@ var cloudGenerator: SKCloudGenerator!
 var scoreLabel: SKPointsLabel!
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
-    
+
+var closestBlock = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
@@ -53,6 +54,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
+        floorGenerator.startGeneratingBlocks(spawnTime: 0.1)
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
@@ -90,14 +92,15 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         addChild(gameOverLabel)
         gameOverLabel.run(blinkAnimation())
     }
-   
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-       if(mainHero.position.y > brickHeight) {
-       } else {
-        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
-       }
+        if(mainHero.position.y > brickHeight) {
+        } else {
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
+            //checkScore()
+        }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
@@ -108,8 +111,25 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
             
+        }
     }
+    
+    func checkScore() {
+        
+            //fix this to only increment by one
+        if (mainHero.position.x > floorGenerator.floorBlocks[0].position.x + brickWidth/2) {
+            if floorGenerator.floorBlocks[0].amWater == true {
+                scoreLabel.increment()
+                if(scoreLabel.number >= 4 && scoreLabel.number % 2 == 0) {
+                    LevelNumber += 1
+                }
+            }
+            
+            floorGenerator.floorBlocks.remove(at: 0)
+        }
+        
     }
+    
     
     func resetGame() {
         // badCarGenerator.onCollision()
@@ -151,9 +171,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
-        
-        
-        
-        
+        checkScore()
     }
 }

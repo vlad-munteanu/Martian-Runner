@@ -12,7 +12,7 @@ import SpriteKit
 class SKFloorBlock: SKSpriteNode {
     
     var category = brickCategory
-    
+    var amWater = false
     init(type: String)
     {
         super.init(texture: SKTexture(imageNamed: type), color: UIColor.clear, size: CGSize(width: brickWidth,height: brickHeight))
@@ -20,6 +20,7 @@ class SKFloorBlock: SKSpriteNode {
             category = waterAndSpikeCategory
             self.size = CGSize(width: brickWidth,height: brickHeight/2)
             loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight/2))
+            amWater = true
         } else {
             //Creating the physics body
             loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight))
