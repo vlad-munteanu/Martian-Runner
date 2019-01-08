@@ -50,6 +50,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
+        floorGenerator.start()
         addChild(floorGenerator)
         
         //Adding points and highscore label

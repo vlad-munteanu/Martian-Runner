@@ -25,10 +25,8 @@ class SKFloorBlock: SKSpriteNode {
             //Creating the physics body
             loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight))
         }
-        
-      
-        
     }
+    
     
     func loadPhysicsBodyWithSize(size: CGSize) {
         physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -39,11 +37,12 @@ class SKFloorBlock: SKSpriteNode {
         physicsBody?.friction = 0.2
     }
     
-    func moveLeft() {
-        let moveLeft = SKAction.moveBy(x: CGFloat(-xPerSec), y: 0, duration: 1)
-        run(SKAction.repeatForever(moveLeft))
-        
-    }
+//    func setCat(catty: String) {
+//        category = waterAndSpikeCategory
+//        self.size = CGSize(width: brickWidth,height: brickHeight/2)
+//        loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight/2))
+//        amWater = true
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

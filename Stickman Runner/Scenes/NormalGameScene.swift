@@ -54,7 +54,7 @@ var closestBlock = 0
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        floorGenerator.startGeneratingBlocks(spawnTime: 0.1)
+        floorGenerator.start()
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
@@ -122,6 +122,9 @@ var closestBlock = 0
         if (gameOver == false) {
             scoreLabel.increment()
             
+            if scoreLabel.number % 5 == 0 {
+                LevelNumber += 1
+            }
         }
     }
     
@@ -134,7 +137,6 @@ var closestBlock = 0
         scoreTimerTime = 1
         xPerSec = 300.0
         
-        floorGenerator.stop()
         let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
         

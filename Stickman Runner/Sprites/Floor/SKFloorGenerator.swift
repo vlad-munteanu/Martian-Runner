@@ -12,44 +12,70 @@ import SpriteKit
 
 class SKFloorGenerator: SKSpriteNode {
     
-    var generationTimer: Timer?
     var floorBlocks = [SKFloorBlock]()
     
     init(size: CGSize) {
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: size.width, height: size.height))
-        for i in 0 ..< 10 {
+        anchorPoint = CGPoint(x:-size.width, y:0)
+        
+        for i in 0 ..< 20 {
             
             if(i < 3) {
                 let newBlock = SKFloorBlock(type: "brick")
                 newBlock.position = CGPoint(x: CGFloat(i) * newBlock.size.width, y: 0)
-                floorBlocks.append(newBlock)
                 addChild(newBlock)
+                floorBlocks.append(newBlock)
+                
             } else {
                 let newBlock = SKFloorBlock(type: floorOrWater())
                 newBlock.position = CGPoint(x: CGFloat(i) * newBlock.size.width, y: 0)
                 addChild(newBlock)
                 floorBlocks.append(newBlock)
                 
+                
             }
-            floorBlocks[i].moveLeft()
         }
         
     }
     
-    func startGeneratingBlocks(spawnTime: TimeInterval) {
+    func start() {
         
-        generationTimer = Timer.scheduledTimer(timeInterval: spawnTime, target: self, selector: #selector(SKFloorGenerator.generateMoreBlocks), userInfo: nil, repeats: true)
+        let adjustedDuration: TimeInterval = TimeInterval(size.width/xPerSec)
+        print(size.width)
+        //Moves ground left by one whole screen
+        let moveLeft = SKAction.moveBy(x: -(size.width)*2, y: 0, duration: adjustedDuration)
         
-    }
-    
-    @objc func generateMoreBlocks() {
-        let newBlock = SKFloorBlock(type: floorOrWater())
-        let temp: CGFloat = (CGFloat(floorBlocks.count + 1))
-        newBlock.position = CGPoint(x: (floorBlocks.last!.position.x) + brickWidth + 3 , y: 0)
-        addChild(newBlock)
-        floorBlocks.append(newBlock)
+        //Teleports ground back to initial position
+        let resetPosition = SKAction.moveTo(x: -size.width , duration: 0)
+        let makeMore = SKAction.run {
+            self.removeAllChildren()
+            for i in 0..<20 {
+                if(i < 3) {
+                    let newBlock = SKFloorBlock(type: "brick")
+                    newBlock.position = CGPoint(x: CGFloat(i) * newBlock.size.width, y: 0)
+                    self.addChild(newBlock)
+                    self.floorBlocks.append(newBlock)
+                    
+                } else {
+                    let newBlock = SKFloorBlock(type: self.floorOrWater())
+                    newBlock.position = CGPoint(x: CGFloat(i) * newBlock.size.width, y: 0)
+                    self.addChild(newBlock)
+                    self.floorBlocks.append(newBlock)
+                }
+            }
+        }
         
-        floorBlocks.last!.moveLeft()
+        let reset = SKAction.run {
+            for i in 0..<20 {
+                self.floorBlocks.remove(at: i)
+            }
+        }
+        
+        //Creates a sequence that combines above to actions
+        let mySequence = SKAction.sequence([makeMore,moveLeft,resetPosition,reset])
+        
+        //Runs the sequence forever
+        run(SKAction.repeatForever(mySequence))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,7 +92,7 @@ class SKFloorGenerator: SKSpriteNode {
     }
     
     func stop() {
-        generationTimer!.invalidate()
+        //generationTimer!.invalidate()
         removeAllActions()
     }
     
