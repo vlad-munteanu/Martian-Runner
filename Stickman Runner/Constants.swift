@@ -28,3 +28,5 @@ let CLOUD_HEIGHT: CGFloat = 90
 
 var HIGHSCORE = 0
 var xPerSec = 150
+
+var level = 0

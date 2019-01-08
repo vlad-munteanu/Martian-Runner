@@ -53,7 +53,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        floorGenerator.startGeneratingBlocks(spawnTime: 0.1)
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
