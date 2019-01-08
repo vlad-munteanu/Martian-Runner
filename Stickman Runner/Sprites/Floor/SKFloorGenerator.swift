@@ -43,9 +43,6 @@ class SKFloorGenerator: SKSpriteNode {
     }
     
     @objc func generateMoreBlocks() {
-        
-        
-        
         let newBlock = SKFloorBlock(type: floorOrWater())
         let temp: CGFloat = (CGFloat(floorBlocks.count + 1))
         newBlock.position = CGPoint(x: (floorBlocks.last!.position.x) + brickWidth + 3 , y: 0)
@@ -53,8 +50,6 @@ class SKFloorGenerator: SKSpriteNode {
         floorBlocks.append(newBlock)
         
         floorBlocks.last!.moveLeft()
-
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

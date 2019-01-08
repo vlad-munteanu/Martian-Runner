@@ -19,6 +19,9 @@ var LevelNumber: Int = 0 {
     didSet {
         xPerSec = pow(xPerSec,1.2)
         likelyhoodOfWater += 0.01
+        if(scoreTimerTime >= 0.01) {
+            scoreTimerTime -= 0.01 
+        }
         
     }
 }
@@ -33,5 +36,7 @@ let CLOUD_WIDTH: CGFloat = 120
 let CLOUD_HEIGHT: CGFloat = 90
 
 var HIGHSCORE = 0
-var xPerSec = 150.0
+var xPerSec = 300.0
+
+var scoreTimerTime: TimeInterval = 1
 

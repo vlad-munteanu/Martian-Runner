@@ -12,11 +12,11 @@ import GameplayKit
 var mainHero: SKStickMan!
 var floorGenerator: SKFloorGenerator!
 var cloudGenerator: SKCloudGenerator!
-
+var gameOver: Bool = false
 var scoreLabel: SKPointsLabel!
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
-
+var generationTimer: Timer?
 var closestBlock = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
@@ -79,6 +79,9 @@ var closestBlock = 0
         
         addChild(pauseLabel)
         
+        //timer
+        generationTimer = Timer.scheduledTimer(timeInterval: scoreTimerTime, target: self, selector: #selector(NormalGameScene.checkScore), userInfo: nil, repeats: true)
+        
         
     }
     
@@ -114,31 +117,27 @@ var closestBlock = 0
         }
     }
     
-    func checkScore() {
+   @objc func checkScore() {
         
-            //fix this to only increment by one
-        if (mainHero.position.x > floorGenerator.floorBlocks[0].position.x + brickWidth/2) {
-            if floorGenerator.floorBlocks[0].amWater == true {
-                scoreLabel.increment()
-                if(scoreLabel.number >= 4 && scoreLabel.number % 2 == 0) {
-                    LevelNumber += 1
-                }
-            }
+        if (gameOver == false) {
+            scoreLabel.increment()
             
-            floorGenerator.floorBlocks.remove(at: 0)
         }
-        
     }
     
     
     func resetGame() {
-        // badCarGenerator.onCollision()
         //Creating the new scene
+        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        LevelNumber = 0
+        likelyhoodOfWater = 0.01
+        scoreTimerTime = 1
+        xPerSec = 300.0
         
-       // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        floorGenerator.stop()
         let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
-
+        
     }
     func blinkAnimation() -> SKAction {
         
@@ -160,7 +159,7 @@ var closestBlock = 0
             }
         }
     }
-
+    
     
     override func update(_ currentTime: TimeInterval) {
         //make sure stickman stays in place
@@ -171,6 +170,5 @@ var closestBlock = 0
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
-        checkScore()
     }
 }
