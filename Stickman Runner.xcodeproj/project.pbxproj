@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8E28875C1D2C3872587C639 /* Pods_Stickman_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCA71D44B352D5947A6AAAB /* Pods_Stickman_Runner.framework */; };
 		FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2EA21E41B27009803B0 /* AppDelegate.swift */; };
 		FC31E2ED21E41B27009803B0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2EC21E41B27009803B0 /* GameScene.sks */; };
 		FC31E2EF21E41B27009803B0 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2EE21E41B27009803B0 /* Actions.sks */; };
@@ -15,9 +16,17 @@
 		FC31E2F621E41B27009803B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2F421E41B27009803B0 /* Main.storyboard */; };
 		FC31E2F821E41B29009803B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2F721E41B29009803B0 /* Assets.xcassets */; };
 		FC31E2FB21E41B29009803B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2F921E41B29009803B0 /* LaunchScreen.storyboard */; };
+		FC31E30421E41C64009803B0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30321E41C64009803B0 /* Constants.swift */; };
+		FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30521E41CB5009803B0 /* SKStickMan.swift */; };
+		FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */; };
+		FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30921E421E3009803B0 /* SKPointsLabel.swift */; };
+		FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2371F0ED2F782DD92A073408 /* Pods-Stickman Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickman Runner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stickman Runner/Pods-Stickman Runner.release.xcconfig"; sourceTree = "<group>"; };
+		3DCA71D44B352D5947A6AAAB /* Pods_Stickman_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stickman_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F268135CD5D4D09E59E722F1 /* Pods-Stickman Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickman Runner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stickman Runner/Pods-Stickman Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		FC31E2E721E41B27009803B0 /* Stickman Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stickman Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC31E2EA21E41B27009803B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC31E2EC21E41B27009803B0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +37,11 @@
 		FC31E2F721E41B29009803B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC31E2FA21E41B29009803B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC31E2FC21E41B29009803B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC31E30321E41C64009803B0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FC31E30521E41CB5009803B0 /* SKStickMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKStickMan.swift; sourceTree = "<group>"; };
+		FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorGenerator.swift; sourceTree = "<group>"; };
+		FC31E30921E421E3009803B0 /* SKPointsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPointsLabel.swift; sourceTree = "<group>"; };
+		FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorBlock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E28875C1D2C3872587C639 /* Pods_Stickman_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C58C4C27C83ACDCB567DD96B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F268135CD5D4D09E59E722F1 /* Pods-Stickman Runner.debug.xcconfig */,
+				2371F0ED2F782DD92A073408 /* Pods-Stickman Runner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FC31E2DE21E41B27009803B0 = {
 			isa = PBXGroup;
 			children = (
 				FC31E2E921E41B27009803B0 /* Stickman Runner */,
 				FC31E2E821E41B27009803B0 /* Products */,
+				C58C4C27C83ACDCB567DD96B /* Pods */,
+				FD3F7FB261AE5244FCECDE50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +88,11 @@
 			children = (
 				FC31E2EA21E41B27009803B0 /* AppDelegate.swift */,
 				FC31E2EC21E41B27009803B0 /* GameScene.sks */,
-				FC31E2EE21E41B27009803B0 /* Actions.sks */,
+				FC31E30921E421E3009803B0 /* SKPointsLabel.swift */,
 				FC31E2F021E41B27009803B0 /* GameScene.swift */,
+				FC31E2EE21E41B27009803B0 /* Actions.sks */,
+				FC31E30221E41B7F009803B0 /* Sprites */,
+				FC31E30321E41C64009803B0 /* Constants.swift */,
 				FC31E2F221E41B27009803B0 /* GameViewController.swift */,
 				FC31E2F421E41B27009803B0 /* Main.storyboard */,
 				FC31E2F721E41B29009803B0 /* Assets.xcassets */,
@@ -73,6 +102,24 @@
 			path = "Stickman Runner";
 			sourceTree = "<group>";
 		};
+		FC31E30221E41B7F009803B0 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				FC31E30521E41CB5009803B0 /* SKStickMan.swift */,
+				FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */,
+				FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		FD3F7FB261AE5244FCECDE50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA71D44B352D5947A6AAAB /* Pods_Stickman_Runner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +127,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC31E2FF21E41B29009803B0 /* Build configuration list for PBXNativeTarget "Stickman Runner" */;
 			buildPhases = (
+				5E35270D738C54344DD203BB /* [CP] Check Pods Manifest.lock */,
 				FC31E2E321E41B27009803B0 /* Sources */,
 				FC31E2E421E41B27009803B0 /* Frameworks */,
 				FC31E2E521E41B27009803B0 /* Resources */,
@@ -141,14 +189,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E35270D738C54344DD203BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stickman Runner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FC31E2E321E41B27009803B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
+				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
+				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
 				FC31E2F121E41B27009803B0 /* GameScene.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
+				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
+				FC31E30421E41C64009803B0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -280,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,6 +370,7 @@
 		};
 		FC31E30021E41B29009803B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F268135CD5D4D09E59E722F1 /* Pods-Stickman Runner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +389,7 @@
 		};
 		FC31E30121E41B29009803B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2371F0ED2F782DD92A073408 /* Pods-Stickman Runner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
