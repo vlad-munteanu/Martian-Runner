@@ -40,7 +40,7 @@ class SKFloorGenerator: SKSpriteNode {
     
     func start() {
         
-        let adjustedDuration: TimeInterval = TimeInterval(size.width/xPerSec)
+        let adjustedDuration: TimeInterval = TimeInterval(size.width/xPerSec/2)
         print(size.width)
         //Moves ground left by one whole screen
         let moveLeft = SKAction.moveBy(x: -(size.width)*2, y: 0, duration: adjustedDuration)

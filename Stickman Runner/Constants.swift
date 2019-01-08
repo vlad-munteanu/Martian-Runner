@@ -31,7 +31,7 @@ let brickWidth: CGFloat = 120.0
 var floorXtoMovePerSec: CGFloat = 500
 var likelyhoodOfWater: CGFloat = 0.3
 
-let CLOUD_WIDTH: CGFloat = 120
+let CLOUD_WIDTH: CGFloat = 180
 let CLOUD_HEIGHT: CGFloat = 90
 
 var HIGHSCORE = 0
