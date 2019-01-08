@@ -9,7 +9,11 @@
 import SpriteKit
 import GameplayKit
 
+var mainHero: SKStickMan!
+var floorGenerator: SKFloorGenerator!
+var cloudGenerator: SKCloudGenerator!
 
+var scoreLabel: SKPointsLabel!
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -49,7 +53,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        floorGenerator.startMoving()
+        floorGenerator.startGeneratingBlocks(spawnTime: 0.1)
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
@@ -77,18 +81,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func addStartLabel() {
-        let tapToStartLabel = SKLabelNode(text: "Tap to Bool!")
-        tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position.x = view!.center.x
-        tapToStartLabel.position.y = view!.center.y + 40
-        tapToStartLabel.fontName = "Helvetica"
-        tapToStartLabel.fontColor = UIColor.black
-        tapToStartLabel.fontSize = 22.0
-        addChild(tapToStartLabel)
-        tapToStartLabel.run(blinkAnimation())
-    }
-    
     func addGameOver() {
         let gameOverLabel = SKLabelNode(text: "Game Over!")
         gameOverLabel.fontColor = UIColor.black
@@ -103,9 +95,10 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //TO-DO: Don't allow double jumps
-        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 7_000))
-        
+       if(mainHero.position.y > brickHeight) {
+       } else {
+        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 10_000))
+       }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
@@ -153,5 +146,15 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         //make sure stickman stays in place
         mainHero.position.x = size.width*0.15
+        if(mainHero.position.y < -size.height) {
+            resetGame()
+        }
+        if(mainHero.position.y >= size.height) {
+            mainHero.position.y = size.height - mainHero.size.height
+        }
+        
+        
+        
+        
     }
 }

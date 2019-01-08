@@ -37,6 +37,7 @@ class SKStickMan: SKSpriteNode {
         physicsBody?.contactTestBitMask = waterAndSpikeCategory
         physicsBody?.collisionBitMask = brickCategory
         physicsBody?.affectedByGravity = true
+        physicsBody?.allowsRotation = false
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

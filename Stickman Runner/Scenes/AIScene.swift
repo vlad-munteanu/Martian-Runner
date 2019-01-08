@@ -9,11 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-var mainHero: SKStickMan!
-var floorGenerator: SKFloorGenerator!
-var cloudGenerator: SKCloudGenerator!
 
-var scoreLabel: SKPointsLabel!
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
 
@@ -53,7 +49,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        floorGenerator.startMoving()
+        floorGenerator.generateMoreBlocks()
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         

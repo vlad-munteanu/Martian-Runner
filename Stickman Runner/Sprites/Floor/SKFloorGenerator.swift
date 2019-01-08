@@ -11,13 +11,12 @@ import SpriteKit
 
 class SKFloorGenerator: SKSpriteNode {
     
-   
+    var generationTimer: Timer?
     var floorBlocks = [SKFloorBlock]()
     
     init(size: CGSize) {
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: size.width, height: size.height))
-        //anchorPoint = CGPoint(x: 0, y: 0)
-        for i in 0 ..< 50 {
+        for i in 0 ..< 1000 {
             
             if(i < 3) {
                 let newBlock = SKFloorBlock(type: "brick")
@@ -33,24 +32,37 @@ class SKFloorGenerator: SKSpriteNode {
             
         }
         
+    }
+    
+    func startGeneratingBlocks(spawnTime: TimeInterval) {
         
+        generationTimer = Timer.scheduledTimer(timeInterval: spawnTime, target: self, selector: #selector(SKFloorGenerator.generateMoreBlocks), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func generateMoreBlocks() {
+        let newBlock = SKFloorBlock(type: floorOrWater())
+        let temp: CGFloat = (CGFloat(floorBlocks.count + 1))
+        newBlock.position = CGPoint(x: (floorBlocks.last?.position.x)! + brickWidth , y: 0)
+        addChild(newBlock)
+        floorBlocks.append(newBlock)
+        floorBlocks.last!.moveLeft()
+    }
+    
+    func update(_ currentTime: TimeInterval) {
+        let moveLeft = SKAction.moveBy(x: CGFloat(-xPerSec), y: 0, duration: 1)
+        for i in 0..<floorBlocks.count+1 {
+            floorBlocks[i].run(SKAction.repeatForever(moveLeft))
+            if(floorBlocks[i].position.x < -(size.width)) {
+                floorBlocks[i].removeFromParent()
+                floorBlocks.remove(at: i)
+            }
+            
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    func startMoving() {
-        
-        let setDurationTime: TimeInterval = TimeInterval(size.width/2/floorXtoMovePerSec)
-        //moves floor left
-        let moveGroundLeft = SKAction.moveBy(x: -size.width, y: 0, duration: setDurationTime)
-        //moves ground back to intial position
-        let resetPosition = SKAction.moveBy(x: size.width, y: 0, duration: 0)
-        //creates sequence
-        let floorSequence = SKAction.sequence([moveGroundLeft,resetPosition])
-        run(SKAction.repeatForever(floorSequence))
     }
     
     func floorOrWater() -> String {
@@ -63,6 +75,7 @@ class SKFloorGenerator: SKSpriteNode {
     }
     
     func stop() {
+        generationTimer!.invalidate()
         removeAllActions()
     }
     

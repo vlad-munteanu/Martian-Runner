@@ -26,6 +26,7 @@
 		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
 		FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F921E454A10024624C /* MainMenuScene.swift */; };
 		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
+		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
 		FC7361F921E454A10024624C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		FC7361FD21E456DA0024624C /* AIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIScene.swift; sourceTree = "<group>"; };
+		FC73620121E45C050024624C /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,10 @@
 				FC7361F821E4548B0024624C /* Scenes */,
 				FC31E30221E41B7F009803B0 /* Sprites */,
 				FC7361FF21E459620024624C /* Supporting Files */,
+				FC73620121E45C050024624C /* Sources */,
 				FC31E2F721E41B29009803B0 /* Assets.xcassets */,
 				FC31E2FC21E41B29009803B0 /* Info.plist */,
+				FC31E30321E41C64009803B0 /* Constants.swift */,
 				FC31E2EA21E41B27009803B0 /* AppDelegate.swift */,
 			);
 			path = "Stickman Runner";
@@ -141,7 +145,6 @@
 			children = (
 				FC31E2EE21E41B27009803B0 /* Actions.sks */,
 				FC31E2EC21E41B27009803B0 /* GameScene.sks */,
-				FC31E30321E41C64009803B0 /* Constants.swift */,
 				FC7361F621E4497D0024624C /* Pixel-Miners.otf */,
 				FC31E2F221E41B27009803B0 /* GameViewController.swift */,
 				FC31E2F921E41B29009803B0 /* LaunchScreen.storyboard */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC31E2F621E41B27009803B0 /* Main.storyboard in Resources */,
+				FC73620221E45C050024624C /* Sources in Resources */,
 				FC31E2ED21E41B27009803B0 /* GameScene.sks in Resources */,
 				FC31E2F821E41B29009803B0 /* Assets.xcassets in Resources */,
 				FC31E2FB21E41B29009803B0 /* LaunchScreen.storyboard in Resources */,

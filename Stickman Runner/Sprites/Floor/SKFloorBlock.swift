@@ -18,10 +18,14 @@ class SKFloorBlock: SKSpriteNode {
         super.init(texture: SKTexture(imageNamed: type), color: UIColor.clear, size: CGSize(width: brickWidth,height: brickHeight))
         if(type == "water") {
             category = waterAndSpikeCategory
+            self.size = CGSize(width: brickWidth,height: brickHeight/2)
+            loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight/2))
+        } else {
+            //Creating the physics body
+            loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight))
         }
         
-        //Creating the physics body
-        loadPhysicsBodyWithSize(size: CGSize(width: brickWidth,height: brickHeight))
+      
         
     }
     
@@ -32,6 +36,12 @@ class SKFloorBlock: SKSpriteNode {
         physicsBody?.affectedByGravity = false
         physicsBody?.isDynamic = false
         physicsBody?.friction = 0.2
+    }
+    
+    func moveLeft() {
+        let moveLeft = SKAction.moveBy(x: CGFloat(-xPerSec), y: 0, duration: 1)
+        run(SKAction.repeatForever(moveLeft))
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
