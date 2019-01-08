@@ -10,12 +10,15 @@ import SpriteKit
 import GameplayKit
 
 var mainHero: SKStickMan!
+var enemyGenerator: SKEnemyGenerator!
+
 var floorGenerator: SKFloorGenerator!
 var cloudGenerator: SKCloudGenerator!
 var gameOver: Bool = false
 var scoreLabel: SKPointsLabel!
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
+
 var generationTimer: Timer?
 var closestBlock = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
@@ -29,11 +32,11 @@ var closestBlock = 0
         
        print("Contact occured")
         
-        if contact.bodyA.categoryBitMask == waterAndSpikeCategory {
+        if contact.bodyA.categoryBitMask == badGuyCategory {
             contact.bodyA.node?.removeFromParent()
             resetGame()
         }
-        if contact.bodyB.categoryBitMask == waterAndSpikeCategory {
+        if contact.bodyB.categoryBitMask == badGuyCategory {
             contact.bodyB.node?.removeFromParent()
             resetGame()
         }
@@ -50,6 +53,13 @@ var closestBlock = 0
         mainHero.position = CGPoint(x:size.width*0.15, y:size.height*0.7)
         mainHero.run()
         addChild(mainHero)
+        
+        //Stick Man
+        enemyGenerator = SKEnemyGenerator()
+        
+        enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
+        enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
+        addChild(enemyGenerator)
         
         
         //floor
@@ -101,7 +111,7 @@ var closestBlock = 0
         
         if(mainHero.position.y > brickHeight) {
         } else {
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 16_000))
             //checkScore()
         }
         let touch:UITouch = touches.first! as UITouch
@@ -121,10 +131,13 @@ var closestBlock = 0
         
         if (gameOver == false) {
             scoreLabel.increment()
-            
-            if scoreLabel.number % 5 == 0 {
-                LevelNumber += 1
+            if(scoreLabel.number % 3 == 0) {
+                floorGenerator.stop()
+                floorGenerator.start()
+                LevelNumber += 1 
             }
+            
+            
         }
     }
     
@@ -132,10 +145,12 @@ var closestBlock = 0
     func resetGame() {
         //Creating the new scene
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        enemyGenerator.onCollision()
+        enemySpeed = 150
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1
-        xPerSec = 300.0
+        xPerSec = 150.0
         
         let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
@@ -172,5 +187,6 @@ var closestBlock = 0
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
+        
     }
 }

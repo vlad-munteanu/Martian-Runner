@@ -11,7 +11,7 @@ import SpriteKit
 
 class SKBlock: SKSpriteNode {
     init() {
-     super.init(texture: SKTexture(image: #imageLiteral(resourceName: "block")), color: UIColor.clear, size: CGSize(width: brickWidth,height: brickHeight))
+     super.init(texture: SKTexture(image: #imageLiteral(resourceName: "bonus")), color: UIColor.clear, size: CGSize(width: brickWidth,height: brickHeight))
     }
     
     func loadPhysicsBodyWithSize(size: CGSize) {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let waterAndSpikeCategory: UInt32 = 0x1 << 0
+let badGuyCategory: UInt32 = 0x1 << 0
 let stickManCategory: UInt32 = 0x1 << 1
 let blockCategory: UInt32 = 0x1 << 2
 let brickCategory: UInt32 = 0x1 << 3
@@ -17,8 +17,9 @@ let brickCategory: UInt32 = 0x1 << 3
 
 var LevelNumber: Int = 0 {
     didSet {
-        xPerSec = pow(xPerSec,1.2)
-        likelyhoodOfWater += 0.01
+        xPerSec += 20
+        enemySpeed += 10
+       
         if(scoreTimerTime >= 0.01) {
             scoreTimerTime -= 0.01 
         }
@@ -26,7 +27,7 @@ var LevelNumber: Int = 0 {
 }
 
 let brickHeight: CGFloat = 120.0
-let brickWidth: CGFloat = 120.0
+let brickWidth: CGFloat = 90
 
 var floorXtoMovePerSec: CGFloat = 500
 var likelyhoodOfWater: CGFloat = 0.3
@@ -35,7 +36,8 @@ let CLOUD_WIDTH: CGFloat = 180
 let CLOUD_HEIGHT: CGFloat = 90
 
 var HIGHSCORE = 0
-var xPerSec: CGFloat = 300.0
+var xPerSec: CGFloat = 100.0
 
 var scoreTimerTime: TimeInterval = 1.0
 
+var enemySpeed = 150

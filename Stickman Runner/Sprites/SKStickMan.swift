@@ -34,7 +34,7 @@ class SKStickMan: SKSpriteNode {
     func loadPhysicsBodyWithSize(size: CGSize) {
         physicsBody = SKPhysicsBody(rectangleOf: size)
         physicsBody?.categoryBitMask = stickManCategory
-        physicsBody?.contactTestBitMask = waterAndSpikeCategory
+        physicsBody?.contactTestBitMask = badGuyCategory
         physicsBody?.collisionBitMask = brickCategory
         physicsBody?.affectedByGravity = true
         physicsBody?.allowsRotation = false

@@ -24,11 +24,11 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         print("Contact occured")
         
-        if contact.bodyA.categoryBitMask == waterAndSpikeCategory {
+        if contact.bodyA.categoryBitMask == badGuyCategory {
             contact.bodyA.node?.removeFromParent()
             resetGame()
         }
-        if contact.bodyB.categoryBitMask == waterAndSpikeCategory {
+        if contact.bodyB.categoryBitMask == badGuyCategory {
             contact.bodyB.node?.removeFromParent()
             resetGame()
         }
