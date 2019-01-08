@@ -13,6 +13,7 @@ import GameplayKit
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
+    let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
         addEveryIntialThing()
@@ -64,6 +65,15 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         cloudGenerator.populate(num: 7)
         cloudGenerator.startGeneratingMoreClouds(spawnTime: 10)
         
+        //pauseButton
+        pauseLabel.fontSize = 12
+        pauseLabel.fontColor = SKColor.black
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
+        pauseLabel.text = "Pause"
+        pauseLabel.name = "pause"
+        
+        addChild(pauseLabel)
+        
         
     }
     
@@ -96,7 +106,17 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         //TO-DO: Don't allow double jumps
         mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 7_000))
         
-      
+        let touch:UITouch = touches.first! as UITouch
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        if let name = touchedNode.name {
+            if name == "pause" {
+                let scene = MainMenuScene(size: size)
+                self.view?.presentScene(scene)
+                
+            }
+            
+    }
     }
     
     func resetGame() {
