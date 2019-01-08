@@ -13,25 +13,23 @@ class SKStickMan: SKSpriteNode {
     
     init() {
         
-        super.init(texture: SKTexture(imageNamed: "man-stand"), color: UIColor.clear, size: CGSize(width: 70,height: 70))
-        
-        loadPhysicsBodyWithSize(size: CGSize(width: 70,height: 70))
+        super.init(texture: SKTexture(imageNamed: "man-stand"), color: UIColor.clear, size: CGSize(width: 80,height: 90))
+        self.zPosition = 1
+        loadPhysicsBodyWithSize(size: CGSize(width: 80,height: 90))
     }
     
     func run() {
         
         var coinManRun : [SKTexture] = []
-        for number in 1...3
+        for number in 1...4
         {
-            coinManRun.append(SKTexture(imageNamed: "man-run\(number)"))
+            coinManRun.append(SKTexture(imageNamed: "\(number)"))
         }
         
        self.run(SKAction.repeatForever(SKAction.animate(with: coinManRun, timePerFrame: 0.1)))
     }
     
-    func jump(){
-        self.texture = SKTexture(imageNamed: "man-run1")
-    }
+    
     
     func loadPhysicsBodyWithSize(size: CGSize) {
         physicsBody = SKPhysicsBody(rectangleOf: size)

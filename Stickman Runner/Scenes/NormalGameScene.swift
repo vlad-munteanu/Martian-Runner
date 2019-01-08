@@ -9,12 +9,9 @@
 import SpriteKit
 import GameplayKit
 
-var mainHero: SKStickMan!
-var floorGenerator: SKFloorGenerator!
 
-var scoreLabel: SKPointsLabel!
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMove(to view: SKView) {
@@ -39,6 +36,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addEveryIntialThing() {
+        //Background
+        backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
+        
         //Stick Man
         mainHero = SKStickMan()
         mainHero.position = CGPoint(x:size.width*0.15, y:size.height*0.7)
@@ -48,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
+        floorGenerator.startMoving()
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
@@ -55,6 +56,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = SKPointsLabel(num: 0)
         scoreLabel.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
         addChild(scoreLabel)
+        
+        //Creating the Clouds
+        cloudGenerator = SKCloudGenerator(texture: nil, color: UIColor.clear, size: view!.frame.size)
+        cloudGenerator.position = view!.center
+        addChild(cloudGenerator)
+        cloudGenerator.populate(num: 7)
+        cloudGenerator.startGeneratingMoreClouds(spawnTime: 10)
+        
         
     }
     
@@ -84,7 +93,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 200))
+        //TO-DO: Don't allow double jumps
+        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 7_000))
         
       
     }
@@ -94,7 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Creating the new scene
         
        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let scene = GameScene(size: size)
+        let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
 
     }

@@ -17,9 +17,10 @@ class SKPointsLabel: SKLabelNode {
     init(num: Int) {
         super.init()
         
-        fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        fontName = "Helvetica"
+        fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        fontName = "Pixel Miners"
         fontSize = 80.0
+        zPosition = 3
         
         
         number = num
@@ -35,3 +36,4 @@ class SKPointsLabel: SKLabelNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

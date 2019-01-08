@@ -11,7 +11,7 @@
 		FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2EA21E41B27009803B0 /* AppDelegate.swift */; };
 		FC31E2ED21E41B27009803B0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2EC21E41B27009803B0 /* GameScene.sks */; };
 		FC31E2EF21E41B27009803B0 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2EE21E41B27009803B0 /* Actions.sks */; };
-		FC31E2F121E41B27009803B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2F021E41B27009803B0 /* GameScene.swift */; };
+		FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2F021E41B27009803B0 /* NormalGameScene.swift */; };
 		FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2F221E41B27009803B0 /* GameViewController.swift */; };
 		FC31E2F621E41B27009803B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2F421E41B27009803B0 /* Main.storyboard */; };
 		FC31E2F821E41B29009803B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC31E2F721E41B29009803B0 /* Assets.xcassets */; };
@@ -21,6 +21,11 @@
 		FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */; };
 		FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30921E421E3009803B0 /* SKPointsLabel.swift */; };
 		FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */; };
+		FC7361F121E444340024624C /* SKCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361EF21E444330024624C /* SKCloud.swift */; };
+		FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F021E444340024624C /* SKKCloudGenerator.swift */; };
+		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
+		FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F921E454A10024624C /* MainMenuScene.swift */; };
+		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +36,7 @@
 		FC31E2EA21E41B27009803B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC31E2EC21E41B27009803B0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		FC31E2EE21E41B27009803B0 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		FC31E2F021E41B27009803B0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FC31E2F021E41B27009803B0 /* NormalGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalGameScene.swift; sourceTree = "<group>"; };
 		FC31E2F221E41B27009803B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FC31E2F521E41B27009803B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC31E2F721E41B29009803B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +47,11 @@
 		FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorGenerator.swift; sourceTree = "<group>"; };
 		FC31E30921E421E3009803B0 /* SKPointsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPointsLabel.swift; sourceTree = "<group>"; };
 		FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorBlock.swift; sourceTree = "<group>"; };
+		FC7361EF21E444330024624C /* SKCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCloud.swift; sourceTree = "<group>"; };
+		FC7361F021E444340024624C /* SKKCloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKKCloudGenerator.swift; sourceTree = "<group>"; };
+		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
+		FC7361F921E454A10024624C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
+		FC7361FD21E456DA0024624C /* AIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +96,10 @@
 		FC31E2E921E41B27009803B0 /* Stickman Runner */ = {
 			isa = PBXGroup;
 			children = (
+				FC7361FF21E459620024624C /* Supporting Files */,
 				FC31E2EA21E41B27009803B0 /* AppDelegate.swift */,
-				FC31E2EC21E41B27009803B0 /* GameScene.sks */,
 				FC31E30921E421E3009803B0 /* SKPointsLabel.swift */,
-				FC31E2F021E41B27009803B0 /* GameScene.swift */,
+				FC7361F821E4548B0024624C /* Scenes */,
 				FC31E2EE21E41B27009803B0 /* Actions.sks */,
 				FC31E30221E41B7F009803B0 /* Sprites */,
 				FC31E30321E41C64009803B0 /* Constants.swift */,
@@ -97,6 +107,7 @@
 				FC31E2F421E41B27009803B0 /* Main.storyboard */,
 				FC31E2F721E41B29009803B0 /* Assets.xcassets */,
 				FC31E2F921E41B29009803B0 /* LaunchScreen.storyboard */,
+				FC7361F621E4497D0024624C /* Pixel-Miners.otf */,
 				FC31E2FC21E41B29009803B0 /* Info.plist */,
 			);
 			path = "Stickman Runner";
@@ -105,11 +116,39 @@
 		FC31E30221E41B7F009803B0 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				FC7361F321E445160024624C /* Clouds */,
 				FC31E30521E41CB5009803B0 /* SKStickMan.swift */,
 				FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */,
 				FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		FC7361F321E445160024624C /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				FC7361EF21E444330024624C /* SKCloud.swift */,
+				FC7361F021E444340024624C /* SKKCloudGenerator.swift */,
+			);
+			path = Clouds;
+			sourceTree = "<group>";
+		};
+		FC7361F821E4548B0024624C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC7361F921E454A10024624C /* MainMenuScene.swift */,
+				FC31E2F021E41B27009803B0 /* NormalGameScene.swift */,
+				FC7361FD21E456DA0024624C /* AIScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FC7361FF21E459620024624C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC31E2EC21E41B27009803B0 /* GameScene.sks */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FD3F7FB261AE5244FCECDE50 /* Frameworks */ = {
@@ -183,6 +222,7 @@
 				FC31E2ED21E41B27009803B0 /* GameScene.sks in Resources */,
 				FC31E2F821E41B29009803B0 /* Assets.xcassets in Resources */,
 				FC31E2FB21E41B29009803B0 /* LaunchScreen.storyboard in Resources */,
+				FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */,
 				FC31E2EF21E41B27009803B0 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,10 +259,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7361FE21E456DA0024624C /* AIScene.swift in Sources */,
+				FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */,
 				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
 				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
 				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
-				FC31E2F121E41B27009803B0 /* GameScene.swift in Sources */,
+				FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */,
+				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
+				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
