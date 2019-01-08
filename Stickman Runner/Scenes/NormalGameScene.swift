@@ -96,7 +96,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
        if(mainHero.position.y > brickHeight) {
        } else {
-        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 10_000))
+        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
        }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)

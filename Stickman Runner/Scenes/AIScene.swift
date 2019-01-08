@@ -12,7 +12,7 @@ import GameplayKit
 
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
-
+   
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
@@ -38,7 +38,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     
     func addEveryIntialThing() {
         //Background
-        backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0, green: 0.4793452024, blue: 0.9990863204, alpha: 1)
         
         //Stick Man
         mainHero = SKStickMan()
@@ -49,7 +49,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        //floorGenerator.generateMoreBlocks()
         floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
@@ -74,18 +73,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(pauseLabel)
         
-    }
-    
-    func addStartLabel() {
-        let tapToStartLabel = SKLabelNode(text: "Tap to Bool!")
-        tapToStartLabel.name = "tapToStartLabel"
-        tapToStartLabel.position.x = view!.center.x
-        tapToStartLabel.position.y = view!.center.y + 40
-        tapToStartLabel.fontName = "Helvetica"
-        tapToStartLabel.fontColor = UIColor.black
-        tapToStartLabel.fontSize = 22.0
-        addChild(tapToStartLabel)
-        tapToStartLabel.run(blinkAnimation())
+        
     }
     
     func addGameOver() {
@@ -102,9 +90,10 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //TO-DO: Don't allow double jumps
-        mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 7_000))
-        
+        if(mainHero.position.y > brickHeight) {
+        } else {
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
+        }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
@@ -116,7 +105,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        
     }
     
     func resetGame() {
@@ -124,7 +112,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         //Creating the new scene
         
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let scene = AIScene(size: size)
+        let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
         
     }
@@ -153,5 +141,19 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         //make sure stickman stays in place
         mainHero.position.x = size.width*0.15
+        if(mainHero.position.y < -size.height) {
+            resetGame()
+        }
+        if(mainHero.position.y >= size.height) {
+            mainHero.position.y = size.height - mainHero.size.height
+        }
+        
+        
+        
+        
     }
+}
+
+extension Array {
+    
 }
