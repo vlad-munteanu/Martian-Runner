@@ -25,6 +25,28 @@
 		FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */; };
 		FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */; };
 		FC72AA1321E575270001DFFE /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1221E575270001DFFE /* FFNN.swift */; };
+		FC72AA1A21E631F00001DFFE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC72AA1821E631F00001DFFE /* Interface.storyboard */; };
+		FC72AA1C21E631F10001DFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC72AA1B21E631F10001DFFE /* Assets.xcassets */; };
+		FC72AA2321E631F10001DFFE /* Stickman Wunner Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FC72AA2221E631F10001DFFE /* Stickman Wunner Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FC72AA2821E631F10001DFFE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA2721E631F10001DFFE /* InterfaceController.swift */; };
+		FC72AA2A21E631F10001DFFE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC72AA2921E631F10001DFFE /* GameScene.sks */; };
+		FC72AA2C21E631F10001DFFE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA2B21E631F10001DFFE /* GameScene.swift */; };
+		FC72AA2E21E631F10001DFFE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA2D21E631F10001DFFE /* ExtensionDelegate.swift */; };
+		FC72AA3021E631F10001DFFE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA2F21E631F10001DFFE /* NotificationController.swift */; };
+		FC72AA3221E631F10001DFFE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA3121E631F10001DFFE /* ComplicationController.swift */; };
+		FC72AA3421E631F10001DFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC72AA3321E631F10001DFFE /* Assets.xcassets */; };
+		FC72AA3921E631F10001DFFE /* Stickman Wunner.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FC72AA1621E631F00001DFFE /* Stickman Wunner.app */; };
+		FC72AA4621E632870001DFFE /* SKFloorBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */; };
+		FC72AA4721E6328A0001DFFE /* SKFloorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */; };
+		FC72AA4821E6328D0001DFFE /* SKCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361EF21E444330024624C /* SKCloud.swift */; };
+		FC72AA4921E6328F0001DFFE /* SKKCloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F021E444340024624C /* SKKCloudGenerator.swift */; };
+		FC72AA4A21E632920001DFFE /* SKStickMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30521E41CB5009803B0 /* SKStickMan.swift */; };
+		FC72AA4B21E632950001DFFE /* SKPointsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30921E421E3009803B0 /* SKPointsLabel.swift */; };
+		FC72AA4C21E632980001DFFE /* SKBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0C21E525150001DFFE /* SKBlock.swift */; };
+		FC72AA4D21E6329A0001DFFE /* SKEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */; };
+		FC72AA4E21E6329D0001DFFE /* SKEnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */; };
+		FC72AA5021E632A70001DFFE /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
+		FC72AA5121E632AB0001DFFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30321E41C64009803B0 /* Constants.swift */; };
 		FC7361F121E444340024624C /* SKCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361EF21E444330024624C /* SKCloud.swift */; };
 		FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F021E444340024624C /* SKKCloudGenerator.swift */; };
 		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
@@ -32,6 +54,48 @@
 		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
 		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC72AA2421E631F10001DFFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC31E2DF21E41B27009803B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC72AA2121E631F10001DFFE;
+			remoteInfo = "Stickman Wunner Extension";
+		};
+		FC72AA3721E631F10001DFFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC31E2DF21E41B27009803B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC72AA1521E631F00001DFFE;
+			remoteInfo = "Stickman Wunner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC72AA3D21E631F10001DFFE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FC72AA2321E631F10001DFFE /* Stickman Wunner Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC72AA4121E631F10001DFFE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FC72AA3921E631F10001DFFE /* Stickman Wunner.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2371F0ED2F782DD92A073408 /* Pods-Stickman Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickman Runner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stickman Runner/Pods-Stickman Runner.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +120,20 @@
 		FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemy.swift; sourceTree = "<group>"; };
 		FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemyGenerator.swift; sourceTree = "<group>"; };
 		FC72AA1221E575270001DFFE /* FFNN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
+		FC72AA1621E631F00001DFFE /* Stickman Wunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stickman Wunner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC72AA1921E631F00001DFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FC72AA1B21E631F10001DFFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC72AA1D21E631F10001DFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC72AA2221E631F10001DFFE /* Stickman Wunner Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stickman Wunner Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC72AA2721E631F10001DFFE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		FC72AA2921E631F10001DFFE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FC72AA2B21E631F10001DFFE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FC72AA2D21E631F10001DFFE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FC72AA2F21E631F10001DFFE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		FC72AA3121E631F10001DFFE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		FC72AA3321E631F10001DFFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC72AA3521E631F10001DFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC72AA3621E631F10001DFFE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		FC7361EF21E444330024624C /* SKCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCloud.swift; sourceTree = "<group>"; };
 		FC7361F021E444340024624C /* SKKCloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKKCloudGenerator.swift; sourceTree = "<group>"; };
 		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
@@ -70,6 +148,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8E28875C1D2C3872587C639 /* Pods_Stickman_Runner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC72AA1F21E631F10001DFFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				FC31E2E921E41B27009803B0 /* Stickman Runner */,
+				FC72AA1721E631F00001DFFE /* Stickman Wunner */,
+				FC72AA2621E631F10001DFFE /* Stickman Wunner Extension */,
 				FC31E2E821E41B27009803B0 /* Products */,
 				C58C4C27C83ACDCB567DD96B /* Pods */,
 				FD3F7FB261AE5244FCECDE50 /* Frameworks */,
@@ -99,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				FC31E2E721E41B27009803B0 /* Stickman Runner.app */,
+				FC72AA1621E631F00001DFFE /* Stickman Wunner.app */,
+				FC72AA2221E631F10001DFFE /* Stickman Wunner Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +220,32 @@
 				FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		FC72AA1721E631F00001DFFE /* Stickman Wunner */ = {
+			isa = PBXGroup;
+			children = (
+				FC72AA1821E631F00001DFFE /* Interface.storyboard */,
+				FC72AA1B21E631F10001DFFE /* Assets.xcassets */,
+				FC72AA1D21E631F10001DFFE /* Info.plist */,
+			);
+			path = "Stickman Wunner";
+			sourceTree = "<group>";
+		};
+		FC72AA2621E631F10001DFFE /* Stickman Wunner Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC72AA2721E631F10001DFFE /* InterfaceController.swift */,
+				FC72AA2921E631F10001DFFE /* GameScene.sks */,
+				FC72AA2B21E631F10001DFFE /* GameScene.swift */,
+				FC72AA2D21E631F10001DFFE /* ExtensionDelegate.swift */,
+				FC72AA2F21E631F10001DFFE /* NotificationController.swift */,
+				FC72AA3121E631F10001DFFE /* ComplicationController.swift */,
+				FC72AA3321E631F10001DFFE /* Assets.xcassets */,
+				FC72AA3521E631F10001DFFE /* Info.plist */,
+				FC72AA3621E631F10001DFFE /* PushNotificationPayload.apns */,
+			);
+			path = "Stickman Wunner Extension";
 			sourceTree = "<group>";
 		};
 		FC7361F321E445160024624C /* Clouds */ = {
@@ -193,15 +308,51 @@
 				FC31E2E321E41B27009803B0 /* Sources */,
 				FC31E2E421E41B27009803B0 /* Frameworks */,
 				FC31E2E521E41B27009803B0 /* Resources */,
+				FC72AA4121E631F10001DFFE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC72AA3821E631F10001DFFE /* PBXTargetDependency */,
 			);
 			name = "Stickman Runner";
 			productName = "Stickman Runner";
 			productReference = FC31E2E721E41B27009803B0 /* Stickman Runner.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FC72AA1521E631F00001DFFE /* Stickman Wunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC72AA3E21E631F10001DFFE /* Build configuration list for PBXNativeTarget "Stickman Wunner" */;
+			buildPhases = (
+				FC72AA1421E631F00001DFFE /* Resources */,
+				FC72AA3D21E631F10001DFFE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC72AA2521E631F10001DFFE /* PBXTargetDependency */,
+			);
+			name = "Stickman Wunner";
+			productName = "Stickman Wunner";
+			productReference = FC72AA1621E631F00001DFFE /* Stickman Wunner.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FC72AA2121E631F10001DFFE /* Stickman Wunner Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC72AA3A21E631F10001DFFE /* Build configuration list for PBXNativeTarget "Stickman Wunner Extension" */;
+			buildPhases = (
+				FC72AA1E21E631F10001DFFE /* Sources */,
+				FC72AA1F21E631F10001DFFE /* Frameworks */,
+				FC72AA2021E631F10001DFFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stickman Wunner Extension";
+			productName = "Stickman Wunner Extension";
+			productReference = FC72AA2221E631F10001DFFE /* Stickman Wunner Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -214,6 +365,12 @@
 				ORGANIZATIONNAME = LesGarcons;
 				TargetAttributes = {
 					FC31E2E621E41B27009803B0 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FC72AA1521E631F00001DFFE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FC72AA2121E631F10001DFFE = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -232,6 +389,8 @@
 			projectRoot = "";
 			targets = (
 				FC31E2E621E41B27009803B0 /* Stickman Runner */,
+				FC72AA1521E631F00001DFFE /* Stickman Wunner */,
+				FC72AA2121E631F10001DFFE /* Stickman Wunner Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +407,25 @@
 				FC31E2FB21E41B29009803B0 /* LaunchScreen.storyboard in Resources */,
 				FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */,
 				FC31E2EF21E41B27009803B0 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC72AA1421E631F00001DFFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC72AA1C21E631F10001DFFE /* Assets.xcassets in Resources */,
+				FC72AA1A21E631F00001DFFE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC72AA2021E631F10001DFFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC72AA5021E632A70001DFFE /* Pixel-Miners.otf in Resources */,
+				FC72AA3421E631F10001DFFE /* Assets.xcassets in Resources */,
+				FC72AA2A21E631F10001DFFE /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +480,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC72AA1E21E631F10001DFFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC72AA4721E6328A0001DFFE /* SKFloorGenerator.swift in Sources */,
+				FC72AA5121E632AB0001DFFE /* Constants.swift in Sources */,
+				FC72AA4921E6328F0001DFFE /* SKKCloudGenerator.swift in Sources */,
+				FC72AA4B21E632950001DFFE /* SKPointsLabel.swift in Sources */,
+				FC72AA4621E632870001DFFE /* SKFloorBlock.swift in Sources */,
+				FC72AA4E21E6329D0001DFFE /* SKEnemyGenerator.swift in Sources */,
+				FC72AA2C21E631F10001DFFE /* GameScene.swift in Sources */,
+				FC72AA4C21E632980001DFFE /* SKBlock.swift in Sources */,
+				FC72AA2821E631F10001DFFE /* InterfaceController.swift in Sources */,
+				FC72AA3221E631F10001DFFE /* ComplicationController.swift in Sources */,
+				FC72AA4821E6328D0001DFFE /* SKCloud.swift in Sources */,
+				FC72AA4D21E6329A0001DFFE /* SKEnemy.swift in Sources */,
+				FC72AA3021E631F10001DFFE /* NotificationController.swift in Sources */,
+				FC72AA2E21E631F10001DFFE /* ExtensionDelegate.swift in Sources */,
+				FC72AA4A21E632920001DFFE /* SKStickMan.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC72AA2521E631F10001DFFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC72AA2121E631F10001DFFE /* Stickman Wunner Extension */;
+			targetProxy = FC72AA2421E631F10001DFFE /* PBXContainerItemProxy */;
+		};
+		FC72AA3821E631F10001DFFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC72AA1521E631F00001DFFE /* Stickman Wunner */;
+			targetProxy = FC72AA3721E631F10001DFFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC31E2F421E41B27009803B0 /* Main.storyboard */ = {
@@ -319,6 +532,14 @@
 				FC31E2FA21E41B29009803B0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FC72AA1821E631F00001DFFE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC72AA1921E631F00001DFFE /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -478,6 +699,88 @@
 			};
 			name = Release;
 		};
+		FC72AA3B21E631F10001DFFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				INFOPLIST_FILE = "Stickman Wunner Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		FC72AA3C21E631F10001DFFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				INFOPLIST_FILE = "Stickman Wunner Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		FC72AA3F21E631F10001DFFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				IBSC_MODULE = Stickman_Wunner_Extension;
+				INFOPLIST_FILE = "Stickman Wunner/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		FC72AA4021E631F10001DFFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				IBSC_MODULE = Stickman_Wunner_Extension;
+				INFOPLIST_FILE = "Stickman Wunner/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -495,6 +798,24 @@
 			buildConfigurations = (
 				FC31E30021E41B29009803B0 /* Debug */,
 				FC31E30121E41B29009803B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC72AA3A21E631F10001DFFE /* Build configuration list for PBXNativeTarget "Stickman Wunner Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC72AA3B21E631F10001DFFE /* Debug */,
+				FC72AA3C21E631F10001DFFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC72AA3E21E631F10001DFFE /* Build configuration list for PBXNativeTarget "Stickman Wunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC72AA3F21E631F10001DFFE /* Debug */,
+				FC72AA4021E631F10001DFFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
