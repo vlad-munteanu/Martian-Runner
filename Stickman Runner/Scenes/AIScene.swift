@@ -10,9 +10,18 @@ import SpriteKit
 import GameplayKit
 
 
+var network = FFNN(inputs: 1, hidden: 300, outputs: 1)
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
+    //AI Stuff
+    var params: [[Float]] = []
+    var doneFor: [Float] = []
+    var answers: [[Float]] = []
+    var neuralPlay = false
+    
+    var generationTimer: Timer?
+    var closestBlock = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
@@ -46,11 +55,18 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         mainHero.run()
         addChild(mainHero)
         
+        //Stick Man
+        enemyGenerator = SKEnemyGenerator()
+        
+        enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
+        enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
+        addChild(enemyGenerator)
+        
         
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
-        floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         floorGenerator.start()
+        floorGenerator.position = CGPoint(x: 0, y: size.height*0.01)
         addChild(floorGenerator)
         
         //Adding points and highscore label
@@ -74,6 +90,9 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(pauseLabel)
         
+        //timer
+        generationTimer = Timer.scheduledTimer(timeInterval: scoreTimerTime, target: self, selector: #selector(NormalGameScene.checkScore), userInfo: nil, repeats: true)
+        
         
     }
     
@@ -93,7 +112,8 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         if(mainHero.position.y > brickHeight) {
         } else {
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 13_000))
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 16_000))
+            //checkScore()
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
@@ -108,12 +128,42 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func resetGame() {
-        // badCarGenerator.onCollision()
-        //Creating the new scene
+    @objc func checkScore() {
         
-        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let scene = NormalGameScene(size: size)
+        if (gameOver == false) {
+            scoreLabel.increment()
+            if(scoreLabel.number % 3 == 0) {
+                floorGenerator.stop()
+                floorGenerator.start()
+                LevelNumber += 1
+            }
+            
+            
+        }
+    }
+    
+    
+    func resetGame() {
+        
+        enemyGenerator.onCollision()
+        enemySpeed = 150
+        LevelNumber = 0
+        likelyhoodOfWater = 0.01
+        scoreTimerTime = 1
+        xPerSec = 150.0
+        
+        if !(neuralPlay) {
+            let res = params.cleanUp(withAnswers: answers)
+            print("Old: \(params)")
+            params = res.this
+            answers = res.answers
+            print("New: \(params)")
+            print(answers)
+            _ = try! network.train(inputs: params, answers: answers, testInputs: params, testAnswers: answers, errorThreshold: 0.1)
+            print(network.getWeights())
+        }
+        
+        let scene = AIScene(size: size)
         self.view?.presentScene(scene)
         
     }
@@ -149,12 +199,55 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
             mainHero.position.y = size.height - mainHero.size.height
         }
         
-        
-        
-        
     }
 }
 
 extension Array {
     
+    func sample() -> (ele: Element, index: Int) {
+        let randomIndex = Int(arc4random()) % count
+        return (ele: self[randomIndex], index: randomIndex)
+    }
+    
+    func cleanUp(withAnswers: [[Float]]) -> (this: [[Float]], answers: [[Float]]) {
+        var amountZero = 0
+        var amountOne = 0
+        var result: (this: [[Float]], answers: [[Float]]) = (this: [], answers: [])
+        var this: [[Float]] = []
+        var answers: [[Float]] = []
+        for (index, _) in self.enumerated() {
+            if withAnswers[index] == [0] {
+                amountZero += 1
+            } else if withAnswers[index] == [1] {
+                amountOne += 1
+            }
+        }
+        for i in self {
+            this.append(i as! [Float])
+        }
+        answers = withAnswers
+        while (amountOne) < amountZero {
+            var continueIt = true
+            for (index, _) in this.enumerated() {
+                if continueIt {
+                    if answers[index] == [0] {
+                        answers.remove(at: index)
+                        this.remove(at: index)
+                        continueIt = false
+                    }
+                }
+            }
+            amountOne = 0
+            amountZero = 0
+            for (index, _) in this.enumerated() {
+                if answers[index] == [0] {
+                    amountZero += 1
+                } else if answers[index] == [1] {
+                    amountOne += 1
+                }
+            }
+        }
+        result = (this: this, answers: answers)
+        return result
+    }
 }

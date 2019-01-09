@@ -13,7 +13,7 @@ class SKEnemyGenerator: SKSpriteNode {
     
     var generationTimer: Timer?
     var allEnemies = [SKEnemy]()
-    
+
     @objc func generateWalls() {
         let newEnemy = SKEnemy()
         addChild(newEnemy)

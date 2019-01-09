@@ -17,10 +17,11 @@ var cloudGenerator: SKCloudGenerator!
 var gameOver: Bool = false
 var scoreLabel: SKPointsLabel!
 
+
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
 
 var generationTimer: Timer?
-var closestBlock = 0
+var closestEnemy = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
@@ -89,8 +90,7 @@ var closestBlock = 0
         
         addChild(pauseLabel)
         
-        //timer
-        generationTimer = Timer.scheduledTimer(timeInterval: scoreTimerTime, target: self, selector: #selector(NormalGameScene.checkScore), userInfo: nil, repeats: true)
+
         
         
     }
@@ -112,7 +112,7 @@ var closestBlock = 0
         if(mainHero.position.y > brickHeight) {
         } else {
             mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 16_000))
-            //checkScore()
+            checkScore()
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
@@ -127,17 +127,24 @@ var closestBlock = 0
         }
     }
     
-   @objc func checkScore() {
-        
-        if (gameOver == false) {
+    @objc func checkScore() {
+        if enemyGenerator.allEnemies.count > 0 {
+        if (mainHero.position.x > (enemyGenerator.allEnemies[0].position.x))
+        {
+            print(enemyGenerator.allEnemies[0].position.x)
+            print(mainHero.position.x)
             scoreLabel.increment()
+            enemyGenerator.allEnemies[0].removeFromParent()
+            enemyGenerator.allEnemies.remove(at: 0)
+            
             if(scoreLabel.number % 3 == 0) {
                 floorGenerator.stop()
                 floorGenerator.start()
-                LevelNumber += 1 
+                LevelNumber += 1
             }
-            
-            
+        }
+        
+        
         }
     }
     
@@ -146,6 +153,7 @@ var closestBlock = 0
         //Creating the new scene
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
+        closestEnemy = 0
         enemySpeed = 150
         LevelNumber = 0
         likelyhoodOfWater = 0.01

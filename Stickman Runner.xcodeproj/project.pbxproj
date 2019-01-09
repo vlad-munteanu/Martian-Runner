@@ -24,6 +24,7 @@
 		FC72AA0D21E525150001DFFE /* SKBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0C21E525150001DFFE /* SKBlock.swift */; };
 		FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */; };
 		FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */; };
+		FC72AA1321E575270001DFFE /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1221E575270001DFFE /* FFNN.swift */; };
 		FC7361F121E444340024624C /* SKCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361EF21E444330024624C /* SKCloud.swift */; };
 		FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F021E444340024624C /* SKKCloudGenerator.swift */; };
 		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
@@ -54,6 +55,7 @@
 		FC72AA0C21E525150001DFFE /* SKBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBlock.swift; sourceTree = "<group>"; };
 		FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemy.swift; sourceTree = "<group>"; };
 		FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemyGenerator.swift; sourceTree = "<group>"; };
+		FC72AA1221E575270001DFFE /* FFNN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
 		FC7361EF21E444330024624C /* SKCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCloud.swift; sourceTree = "<group>"; };
 		FC7361F021E444340024624C /* SKKCloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKKCloudGenerator.swift; sourceTree = "<group>"; };
 		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		FC31E2E921E41B27009803B0 /* Stickman Runner */ = {
 			isa = PBXGroup;
 			children = (
+				FC72AA1221E575270001DFFE /* FFNN.swift */,
 				FC7361F821E4548B0024624C /* Scenes */,
 				FC31E30221E41B7F009803B0 /* Sprites */,
 				FC7361FF21E459620024624C /* Supporting Files */,
@@ -293,6 +296,7 @@
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
+				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,
 				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
 				FC31E30421E41C64009803B0 /* Constants.swift in Sources */,
 			);
