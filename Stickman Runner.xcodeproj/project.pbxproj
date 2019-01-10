@@ -33,6 +33,7 @@
 		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
 		FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */; };
 		FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */; };
+		FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE1AA421E6EE9B00E44081 /* PageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		FC73620121E45C050024624C /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPopMenu.swift; sourceTree = "<group>"; };
 		FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISceneWithInstructions.swift; sourceTree = "<group>"; };
+		FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBPageControl.h; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/GBPageControl.h"; sourceTree = "<group>"; };
+		FCCE1AA421E6EE9B00E44081 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/PageControl.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +113,7 @@
 		FC31E2E921E41B27009803B0 /* Stickman Runner */ = {
 			isa = PBXGroup;
 			children = (
-				FC72AA1221E575270001DFFE /* FFNN.swift */,
+				FCA43D8D21E6DE9200FED3E7 /* Helper Classes */,
 				FC7361F821E4548B0024624C /* Scenes */,
 				FC31E30221E41B7F009803B0 /* Sprites */,
 				FC7361FF21E459620024624C /* Supporting Files */,
@@ -126,11 +129,9 @@
 		FC31E30221E41B7F009803B0 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */,
 				FC73620021E459C50024624C /* Floor */,
 				FC7361F321E445160024624C /* Clouds */,
 				FC31E30521E41CB5009803B0 /* SKStickMan.swift */,
-				FC31E30921E421E3009803B0 /* SKPointsLabel.swift */,
 				FC72AA0C21E525150001DFFE /* SKBlock.swift */,
 				FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */,
 				FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */,
@@ -178,6 +179,18 @@
 				FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */,
 			);
 			path = Floor;
+			sourceTree = "<group>";
+		};
+		FCA43D8D21E6DE9200FED3E7 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */,
+				FC31E30921E421E3009803B0 /* SKPointsLabel.swift */,
+				FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */,
+				FCCE1AA421E6EE9B00E44081 /* PageControl.swift */,
+				FC72AA1221E575270001DFFE /* FFNN.swift */,
+			);
+			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
 		FD3F7FB261AE5244FCECDE50 /* Frameworks */ = {
@@ -299,6 +312,7 @@
 				FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */,
 				FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */,
 				FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */,
+				FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */,
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
@@ -455,6 +469,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Stickman Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,6 +492,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8C8RXSHKT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Stickman Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

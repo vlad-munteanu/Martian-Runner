@@ -4,7 +4,7 @@
 //
 //  ⚡️⛈Created by Vlad Munteanu on 11/25/18.⚡️⛈
 //  Copyright © 2018 Les Garçons. All rights reserved.
-// ⚡️⛈⚡️⛈ITS FUCKING TREWAY⚡️⛈⚡️⛈
+
 
 import Foundation
 import UIKit
@@ -31,6 +31,7 @@ class SKPointsLabel: SKLabelNode {
         number += 1
         text = "\(number)"
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

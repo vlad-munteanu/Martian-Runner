@@ -9,17 +9,22 @@
 import SpriteKit
 import GameplayKit
 
-var mainHero: SKStickMan!
-var enemyGenerator: SKEnemyGenerator!
-
-var floorGenerator: SKFloorGenerator!
-var cloudGenerator: SKCloudGenerator!
-var gameOver: Bool = false
-var scoreLabel: SKPointsLabel!
 
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
+    
+    
+var mainHero: SKStickMan!
+var enemyGenerator: SKEnemyGenerator!
+    
+var floorGenerator: SKFloorGenerator!
+var cloudGenerator: SKCloudGenerator!
 
+
+var scoreLabel: SKPointsLabel!
+    
+var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    
 var generationTimer: Timer?
 var closestEnemy = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
@@ -35,11 +40,12 @@ var closestEnemy = 0
         
         if contact.bodyA.categoryBitMask == badGuyCategory {
             contact.bodyA.node?.removeFromParent()
-            resetGame()
+            gameOver()
+            
         }
         if contact.bodyB.categoryBitMask == badGuyCategory {
             contact.bodyB.node?.removeFromParent()
-            resetGame()
+            gameOver()
         }
         
         
@@ -94,16 +100,6 @@ var closestEnemy = 0
         
     }
     
-    func addGameOver() {
-        let gameOverLabel = SKLabelNode(text: "Game Over!")
-        gameOverLabel.fontColor = UIColor.black
-        gameOverLabel.fontName = "Helvetica"
-        gameOverLabel.position.x = view!.center.x
-        gameOverLabel.position.y = view!.center.y + 40
-        gameOverLabel.fontSize = 22.0
-        addChild(gameOverLabel)
-        gameOverLabel.run(blinkAnimation())
-    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,6 +114,13 @@ var closestEnemy = 0
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
             if name == "pause" {
+                enemyGenerator.onCollision()
+                closestEnemy = 0
+                enemyTime = 0.8
+                LevelNumber = 0
+                likelyhoodOfWater = 0.01
+                scoreTimerTime = 1
+                xPerSec = 150.0
                 let scene = MainMenuScene(size: size)
                 self.view?.presentScene(scene)
                 
@@ -150,6 +153,22 @@ var closestEnemy = 0
         }
     }
     
+    func gameOver() {
+        if highScore < scoreLabel.number  {
+            highScore = scoreLabel.number
+            
+            let defaults = UserDefaults.standard
+            defaults.set(highScore, forKey: "highscore")
+        }
+        
+//        let alert = UIAlertController(title: "Game Over!", message:"Your final score was \(scoreLabel.number).", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Try Again!", style: .default) { _ in
+//            self.resetGame()
+//        })
+//        sceneController.present(alert, animated: true){}
+//
+    }
+    
     
     func resetGame() {
         //Creating the new scene
@@ -161,6 +180,7 @@ var closestEnemy = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1
         xPerSec = 150.0
+        
         
         let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)

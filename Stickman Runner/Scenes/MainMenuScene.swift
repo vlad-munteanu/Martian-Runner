@@ -13,7 +13,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
     let normalLabel = SKLabelNode(fontNamed: "Pixel Miners")
     let AILabel = SKLabelNode(fontNamed: "Pixel Miners")
     let highScoreLabel = SKLabelNode(fontNamed: "Pixel Miners")
-    let mainLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    let mainLabel = SKSpriteNode(imageNamed: "Sicko-Jumper")
     var musicButton = SKSpriteNode()
     let background = SKSpriteNode(imageNamed: "bg")
     var pop: SKPopMenu!
@@ -36,10 +36,8 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
         AILabel.name = "AI"
         AILabel.zPosition = 1
         
-        mainLabel.fontSize = 36
-        mainLabel.fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        mainLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.75)
-        mainLabel.text = "Sicko Jumper"
+        mainLabel.size = CGSize(width: size.width , height: 60)
+        mainLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.75 )
         mainLabel.name = "sicko"
         mainLabel.zPosition = 1
         
@@ -90,12 +88,12 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
         if name == "instructions" {
             print("Instructions")
             pop.slideDown(0.2)
-            let scene = AIScene(size: size)
+            let scene = AISceneWithInstructions(size: size)
             self.view?.presentScene(scene)
         } else if name == "normal" {
             print("normal")
             pop.slideDown(0.2)
-            let scene = AISceneWithInstructions(size: size)
+            let scene = AIScene(size: size)
             self.view?.presentScene(scene)
         }
     }

@@ -14,13 +14,25 @@ var network = FFNN(inputs: 1, hidden: 300, outputs: 1)
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
+    var mainHero: SKStickMan!
+    var enemyGenerator: SKEnemyGenerator!
+    
+    var floorGenerator: SKFloorGenerator!
+    var cloudGenerator: SKCloudGenerator!
+    var gameOver: Bool = false
+    var scoreLabel: SKPointsLabel!
+    
+    var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    
+    var generationTimer: Timer?
+    var closestEnemy = 0
+
     //AI Stuff
     var params: [[Float]] = []
     var doneFor: [Float] = []
     var answers: [[Float]] = []
     var neuralPlay = false
     
-    var generationTimer: Timer?
     var closestBlock = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
@@ -120,6 +132,14 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
             if name == "pause" {
+                enemyGenerator.onCollision()
+               // closestEnemy = 0
+                enemyTime = 0.8
+                LevelNumber = 0
+                likelyhoodOfWater = 0.01
+                scoreTimerTime = 1
+                xPerSec = 150.0
+                
                 let scene = MainMenuScene(size: size)
                 self.view?.presentScene(scene)
                 
