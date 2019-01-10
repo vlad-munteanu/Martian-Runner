@@ -14,8 +14,8 @@ class SKEnemyGenerator: SKSpriteNode {
     var generationTimer: Timer?
     var allEnemies = [SKEnemy]()
 
-    @objc func generateWalls() {
-        let newEnemy = SKEnemy(post: CGPoint(x: size.width ,y: size.height*0.7))
+    @objc func generateBadGuys() {
+        let newEnemy = SKEnemy(post: CGPoint(x: size.width + 50 ,y: size.height*0.2))
         addChild(newEnemy)
         newEnemy.run()
         allEnemies.append(newEnemy)
@@ -23,7 +23,7 @@ class SKEnemyGenerator: SKSpriteNode {
     
     func startGeneratingMoreEnemies(spawnTime: TimeInterval) {
         
-        generationTimer = Timer.scheduledTimer(timeInterval: spawnTime, target: self, selector: #selector(SKEnemyGenerator.generateWalls), userInfo: nil, repeats: true)
+        generationTimer = Timer.scheduledTimer(timeInterval: spawnTime, target: self, selector: #selector(SKEnemyGenerator.generateBadGuys), userInfo: nil, repeats: true)
         
     }
     

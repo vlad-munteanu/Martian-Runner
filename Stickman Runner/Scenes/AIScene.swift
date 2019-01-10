@@ -146,7 +146,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     func resetGame() {
         
         enemyGenerator.onCollision()
-        enemySpeed = 150
+        enemyTime = 0.8
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1

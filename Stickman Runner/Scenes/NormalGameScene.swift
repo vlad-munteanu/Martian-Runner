@@ -57,7 +57,7 @@ var closestEnemy = 0
         
         //Stick Man
         enemyGenerator = SKEnemyGenerator()
-        enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
+        enemyGenerator.position = CGPoint(x: size.width,y: size.height * 0.1)
         enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
         addChild(enemyGenerator)
         
@@ -127,7 +127,7 @@ var closestEnemy = 0
     }
     
     @objc func checkScore() {
-        print(enemyGenerator.allEnemies[0].position.x)
+       // print(enemyGenerator.allEnemies[0].position.x)
         print(size.width)
         print(mainHero.position.x)
         if enemyGenerator.allEnemies.count > 0 {
@@ -156,7 +156,7 @@ var closestEnemy = 0
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
         closestEnemy = 0
-        enemySpeed = 150
+        enemyTime = 0.8
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1

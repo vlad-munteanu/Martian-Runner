@@ -31,7 +31,8 @@
 		FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F921E454A10024624C /* MainMenuScene.swift */; };
 		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
 		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
-		FCA43D8821E6C26400FED3E7 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */; };
+		FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */; };
+		FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +64,8 @@
 		FC7361F921E454A10024624C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		FC7361FD21E456DA0024624C /* AIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIScene.swift; sourceTree = "<group>"; };
 		FC73620121E45C050024624C /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
-		FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPopMenu.swift; sourceTree = "<group>"; };
+		FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISceneWithInstructions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		FC31E30221E41B7F009803B0 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */,
 				FC73620021E459C50024624C /* Floor */,
 				FC7361F321E445160024624C /* Clouds */,
 				FC31E30521E41CB5009803B0 /* SKStickMan.swift */,
@@ -149,8 +152,8 @@
 			children = (
 				FC7361F921E454A10024624C /* MainMenuScene.swift */,
 				FC31E2F021E41B27009803B0 /* NormalGameScene.swift */,
-				FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */,
 				FC7361FD21E456DA0024624C /* AIScene.swift */,
+				FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -293,11 +296,12 @@
 				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
 				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
 				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
+				FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */,
 				FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */,
+				FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */,
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
-				FCA43D8821E6C26400FED3E7 /* SettingsScene.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,
