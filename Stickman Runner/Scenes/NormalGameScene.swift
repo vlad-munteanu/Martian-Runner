@@ -51,13 +51,12 @@ var closestEnemy = 0
         
         //Stick Man
         mainHero = SKStickMan()
-        mainHero.position = CGPoint(x:size.width*0.15, y:size.height*0.7)
+        mainHero.position = CGPoint(x:size.width*0.15, y:brickHeight)
         mainHero.run()
         addChild(mainHero)
         
         //Stick Man
         enemyGenerator = SKEnemyGenerator()
-        
         enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
         enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
         addChild(enemyGenerator)
@@ -128,8 +127,11 @@ var closestEnemy = 0
     }
     
     @objc func checkScore() {
+        print(enemyGenerator.allEnemies[0].position.x)
+        print(size.width)
+        print(mainHero.position.x)
         if enemyGenerator.allEnemies.count > 0 {
-        if (mainHero.position.x > (enemyGenerator.allEnemies[0].position.x))
+        if (enemyGenerator.allEnemies[0].position.x < -size.width/2)
         {
             print(enemyGenerator.allEnemies[0].position.x)
             print(mainHero.position.x)

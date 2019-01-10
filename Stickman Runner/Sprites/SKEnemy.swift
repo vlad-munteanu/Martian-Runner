@@ -12,11 +12,11 @@ import SpriteKit
 
 class SKEnemy: SKSpriteNode {
     
-    init() {
+    init(post: CGPoint) {
         
         super.init(texture: SKTexture(imageNamed: "slime1"), color: UIColor.clear, size: CGSize(width: 30,height: 40))
         self.zPosition = 1
-        position.x = size.width * CGFloat.random(in: 0.8..<2.3)
+        self.position = post
         loadPhysicsBodyWithSize(size: CGSize(width: 30,height: 40))
     }
     

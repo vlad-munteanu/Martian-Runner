@@ -15,7 +15,7 @@ class SKEnemyGenerator: SKSpriteNode {
     var allEnemies = [SKEnemy]()
 
     @objc func generateWalls() {
-        let newEnemy = SKEnemy()
+        let newEnemy = SKEnemy(post: CGPoint(x: size.width ,y: size.height*0.7))
         addChild(newEnemy)
         newEnemy.run()
         allEnemies.append(newEnemy)

@@ -31,6 +31,7 @@
 		FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F921E454A10024624C /* MainMenuScene.swift */; };
 		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
 		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
+		FCA43D8821E6C26400FED3E7 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FC7361F921E454A10024624C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		FC7361FD21E456DA0024624C /* AIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIScene.swift; sourceTree = "<group>"; };
 		FC73620121E45C050024624C /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				FC7361F921E454A10024624C /* MainMenuScene.swift */,
 				FC31E2F021E41B27009803B0 /* NormalGameScene.swift */,
+				FCA43D8721E6C26400FED3E7 /* SettingsScene.swift */,
 				FC7361FD21E456DA0024624C /* AIScene.swift */,
 			);
 			path = Scenes;
@@ -294,6 +297,7 @@
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
+				FCA43D8821E6C26400FED3E7 /* SettingsScene.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,
@@ -452,7 +456,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner";
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Sicko-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Stickman-Runner";
+				PRODUCT_BUNDLE_IDENTIFIER = "LesGarcons.Sicko-Runner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
