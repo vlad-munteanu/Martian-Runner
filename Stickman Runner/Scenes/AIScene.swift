@@ -14,31 +14,33 @@ var network = FFNN(inputs: 1, hidden: 300, outputs: 1)
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
-    var mainHero: SKStickMan!
-    var enemyGenerator: SKEnemyGenerator!
-    
-    var floorGenerator: SKFloorGenerator!
-    var cloudGenerator: SKCloudGenerator!
-    var gameOver: Bool = false
-    var scoreLabel: SKPointsLabel!
-    
-    var highScore = UserDefaults.standard.integer(forKey: "highscore")
-    
-    var generationTimer: Timer?
-    var closestEnemy = 0
-
     //AI Stuff
     var params: [[Float]] = []
     var doneFor: [Float] = []
     var answers: [[Float]] = []
     var neuralPlay = false
     
-    var closestBlock = 0
+
+    var mainHero: SKStickMan!
+    var enemyGenerator: SKEnemyGenerator!
+    
+    var floorGenerator: SKFloorGenerator!
+    var cloudGenerator: SKCloudGenerator!
+    
+    
+    
+    var scoreLabel: SKPointsLabel!
+    
+    var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    
+    var generationTimer: Timer?
+    var closestEnemy = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -13.0)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -47,11 +49,12 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask == badGuyCategory {
             contact.bodyA.node?.removeFromParent()
-            resetGame()
+            gameOver()
+            
         }
         if contact.bodyB.categoryBitMask == badGuyCategory {
             contact.bodyB.node?.removeFromParent()
-            resetGame()
+            gameOver()
         }
         
         
@@ -63,14 +66,13 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         //Stick Man
         mainHero = SKStickMan()
-        mainHero.position = CGPoint(x:size.width*0.15, y:size.height*0.7)
+        mainHero.position = CGPoint(x:size.width*0.15, y:brickHeight)
         mainHero.run()
         addChild(mainHero)
         
         //Stick Man
         enemyGenerator = SKEnemyGenerator()
-        
-        enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
+        enemyGenerator.position = CGPoint(x: size.width-50,y: size.height * 0.1)
         enemyGenerator.generateBadGuys()
         addChild(enemyGenerator)
         
@@ -102,30 +104,16 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(pauseLabel)
         
-        //timer
-        generationTimer = Timer.scheduledTimer(timeInterval: scoreTimerTime, target: self, selector: #selector(NormalGameScene.checkScore), userInfo: nil, repeats: true)
-        
         
     }
     
-    func addGameOver() {
-        let gameOverLabel = SKLabelNode(text: "Game Over!")
-        gameOverLabel.fontColor = UIColor.black
-        gameOverLabel.fontName = "Helvetica"
-        gameOverLabel.position.x = view!.center.x
-        gameOverLabel.position.y = view!.center.y + 40
-        gameOverLabel.fontSize = 22.0
-        addChild(gameOverLabel)
-        gameOverLabel.run(blinkAnimation())
-    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if(mainHero.position.y > brickHeight) {
         } else {
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 16_000))
-            //checkScore()
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
@@ -133,12 +121,11 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         if let name = touchedNode.name {
             if name == "pause" {
                 enemyGenerator.onCollision()
-               // closestEnemy = 0
+                closestEnemy = 0
                 LevelNumber = 0
                 likelyhoodOfWater = 0.01
                 scoreTimerTime = 1
                 xPerSec = 150.0
-                
                 let scene = MainMenuScene(size: size)
                 self.view?.presentScene(scene)
                 
@@ -148,41 +135,64 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func checkScore() {
-        
-        if (gameOver == false) {
-            scoreLabel.increment()
-            if(scoreLabel.number % 3 == 0) {
-                floorGenerator.stop()
-                floorGenerator.start()
-                LevelNumber += 1
+        // print(enemyGenerator.allEnemies[0].position.x)
+        print("size.width :\(size.width)")
+        print("main hero :\(mainHero.position.x)")
+        if enemyGenerator.allEnemies.count > 0 {
+            let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
+            
+            if (enemyPosition.x < mainHero.position.x)
+            {
+                print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
+                print(enemyGenerator.allEnemies[0].position.x)
+                
+                enemyGenerator.allEnemies.remove(at: 0)
+                scoreLabel.increment()
+                
+                if(scoreLabel.number % 3 == 0) {
+                    
+                    floorGenerator.stop()
+                    floorGenerator.start()
+                    
+                    
+                    enemyGenerator.restart()
+                    
+                    LevelNumber += 1
+                    backgroundColor = .random()
+                }
             }
             
             
         }
     }
     
+    func gameOver() {
+        if highScore < scoreLabel.number  {
+            highScore = scoreLabel.number
+            
+            let defaults = UserDefaults.standard
+            defaults.set(highScore, forKey: "highscore")
+        }
+        
+        resetGame()
+        
+        
+    }
+    
     
     func resetGame() {
-        
+        //Creating the new scene
+        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
-
+        closestEnemy = 0
+        
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1
         xPerSec = 150.0
         
-        if !(neuralPlay) {
-            let res = params.cleanUp(withAnswers: answers)
-            print("Old: \(params)")
-            params = res.this
-            answers = res.answers
-            print("New: \(params)")
-            print(answers)
-            _ = try! network.train(inputs: params, answers: answers, testInputs: params, testAnswers: answers, errorThreshold: 0.1)
-            print(network.getWeights())
-        }
         
-        let scene = AIScene(size: size)
+        let scene = NormalGameScene(size: size)
         self.view?.presentScene(scene)
         
     }
@@ -217,9 +227,12 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
+        checkScore()
         
     }
 }
+
+
 
 extension Array {
     

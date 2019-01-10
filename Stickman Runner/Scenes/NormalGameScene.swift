@@ -19,6 +19,7 @@ var enemyGenerator: SKEnemyGenerator!
     
 var floorGenerator: SKFloorGenerator!
 var cloudGenerator: SKCloudGenerator!
+    
 
 
 var scoreLabel: SKPointsLabel!
