@@ -12,9 +12,11 @@ import SpriteKit
 
 class SKEnemy: SKSpriteNode {
     
-    init(post: CGPoint) {
+    var timer: TimeInterval = 1.3
+    init(post: CGPoint, time: TimeInterval) {
         
         super.init(texture: SKTexture(imageNamed: "slime1"), color: UIColor.clear, size: CGSize(width: 30,height: 40))
+        timer = time
         self.zPosition = 1
         self.position = post
         loadPhysicsBodyWithSize(size: CGSize(width: 30,height: 40))
@@ -30,7 +32,8 @@ class SKEnemy: SKSpriteNode {
         
         self.run(SKAction.repeatForever(SKAction.animate(with: slimey, timePerFrame: 0.1)))
         
-        var moveLeft = SKAction.moveBy(x: -300, y: 0, duration: enemyTime)
+        var moveLeft = SKAction.moveBy(x: -300, y: 0, duration: timer)
+        print(timer)
         
         self.run(SKAction.repeatForever(moveLeft))
     }
@@ -38,8 +41,6 @@ class SKEnemy: SKSpriteNode {
     func stop(){
         self.removeAllActions()
     }
-    
-    
     
     
     func loadPhysicsBodyWithSize(size: CGSize) {

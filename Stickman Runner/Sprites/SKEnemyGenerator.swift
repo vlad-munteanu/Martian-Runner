@@ -11,31 +11,60 @@ import SpriteKit
 
 class SKEnemyGenerator: SKSpriteNode {
     
-    var generationTimer: Timer?
     var allEnemies = [SKEnemy]()
-
-    @objc func generateBadGuys() {
-        let newEnemy = SKEnemy(post: CGPoint(x: size.width + 50 ,y: size.height*0.2))
-        addChild(newEnemy)
-        newEnemy.run()
-        allEnemies.append(newEnemy)
+    var enemyTime: TimeInterval = 1.1
+    var exponent = 1.0
+    
+    func generateBadGuys() {
+        
+        for i in 0...3 {
+            var addNum: CGFloat = 100
+            if(allEnemies.count > 0 ) {
+                var calc = (Int)((pow(400,exponent)))
+            
+                addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...1800))
+            }
+            
+            let newEnemy = SKEnemy(post: CGPoint(x: size.width * 2 + addNum ,y: size.height*0.2), time: enemyTime)
+            addChild(newEnemy)
+            newEnemy.run()
+            allEnemies.append(newEnemy)
+        }
     }
     
-    func startGeneratingMoreEnemies(spawnTime: TimeInterval) {
-        
-        generationTimer = Timer.scheduledTimer(timeInterval: spawnTime, target: self, selector: #selector(SKEnemyGenerator.generateBadGuys), userInfo: nil, repeats: true)
-        
+    func calcTime() {
+        if(enemyTime >= 0.5) {
+            enemyTime -= 0.15
+            if exponent < 1.22{
+                exponent += 0.02
+            }
+        }
     }
+    
+
     
     func onCollision() {
         stopGeneratingEnemies()
         for enemy in allEnemies {
-            enemy.stop()
+            enemy.removeFromParent()
         }
     }
     
+    func stop(){
+       removeAllActions()
+    }
+    
+    func restart() {
+        onCollision()
+        allEnemies.removeAll()
+        calcTime()
+        generateBadGuys()
+    }
+    
+   
+    
     func stopGeneratingEnemies() {
-        generationTimer!.invalidate()
+      
     }
     
 }

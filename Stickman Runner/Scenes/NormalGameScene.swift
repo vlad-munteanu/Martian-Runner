@@ -32,6 +32,7 @@ var closestEnemy = 0
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -13.0)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -63,8 +64,8 @@ var closestEnemy = 0
         
         //Stick Man
         enemyGenerator = SKEnemyGenerator()
-        enemyGenerator.position = CGPoint(x: size.width,y: size.height * 0.1)
-        enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
+        enemyGenerator.position = CGPoint(x: size.width-50,y: size.height * 0.1)
+        enemyGenerator.generateBadGuys()
         addChild(enemyGenerator)
         
         
@@ -106,8 +107,7 @@ var closestEnemy = 0
         
         if(mainHero.position.y > brickHeight) {
         } else {
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 16_000))
-            checkScore()
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
@@ -116,7 +116,6 @@ var closestEnemy = 0
             if name == "pause" {
                 enemyGenerator.onCollision()
                 closestEnemy = 0
-                enemyTime = 0.8
                 LevelNumber = 0
                 likelyhoodOfWater = 0.01
                 scoreTimerTime = 1
@@ -131,21 +130,29 @@ var closestEnemy = 0
     
     @objc func checkScore() {
        // print(enemyGenerator.allEnemies[0].position.x)
-        print(size.width)
-        print(mainHero.position.x)
+        print("size.width :\(size.width)")
+        print("main hero :\(mainHero.position.x)")
         if enemyGenerator.allEnemies.count > 0 {
-        if (enemyGenerator.allEnemies[0].position.x < -size.width/2)
+        let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
+            
+        if (enemyPosition.x < mainHero.position.x)
         {
+              print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
             print(enemyGenerator.allEnemies[0].position.x)
-            print(mainHero.position.x)
-            scoreLabel.increment()
-            enemyGenerator.allEnemies[0].removeFromParent()
+           
             enemyGenerator.allEnemies.remove(at: 0)
+              scoreLabel.increment()
             
             if(scoreLabel.number % 3 == 0) {
+                
                 floorGenerator.stop()
                 floorGenerator.start()
+                
+               
+                enemyGenerator.restart()
+                
                 LevelNumber += 1
+                backgroundColor = .random()
             }
         }
         
@@ -161,12 +168,9 @@ var closestEnemy = 0
             defaults.set(highScore, forKey: "highscore")
         }
         
-//        let alert = UIAlertController(title: "Game Over!", message:"Your final score was \(scoreLabel.number).", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Try Again!", style: .default) { _ in
-//            self.resetGame()
-//        })
-//        sceneController.present(alert, animated: true){}
-//
+        resetGame()
+        
+
     }
     
     
@@ -175,7 +179,7 @@ var closestEnemy = 0
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
         closestEnemy = 0
-        enemyTime = 0.8
+
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1
@@ -217,6 +221,22 @@ var closestEnemy = 0
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
+        checkScore()
         
+    }
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(red:   .random(),
+                       green: .random(),
+                       blue:  .random(),
+                       alpha: 1.0)
     }
 }

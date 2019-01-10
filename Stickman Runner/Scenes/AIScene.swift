@@ -71,7 +71,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         enemyGenerator = SKEnemyGenerator()
         
         enemyGenerator.position = CGPoint(x: size.width ,y: size.height*0.7)
-        enemyGenerator.startGeneratingMoreEnemies(spawnTime: 1.5)
+        enemyGenerator.generateBadGuys()
         addChild(enemyGenerator)
         
         
@@ -134,7 +134,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
             if name == "pause" {
                 enemyGenerator.onCollision()
                // closestEnemy = 0
-                enemyTime = 0.8
                 LevelNumber = 0
                 likelyhoodOfWater = 0.01
                 scoreTimerTime = 1
@@ -166,7 +165,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     func resetGame() {
         
         enemyGenerator.onCollision()
-        enemyTime = 0.8
+
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1

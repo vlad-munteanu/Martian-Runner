@@ -18,14 +18,6 @@ let brickCategory: UInt32 = 0x1 << 3
 var LevelNumber: Int = 0 {
     didSet {
         xPerSec += 20
-       
-        if(enemyTime >= 0.5) {
-            enemyTime -= 0.05
-        }
-       
-        if(scoreTimerTime >= 0.3) {
-            scoreTimerTime -= 0.2
-        }
     }
 }
 
@@ -42,7 +34,7 @@ var HIGHSCORE = 0
 var xPerSec: CGFloat = 100.0
 
 var scoreTimerTime: TimeInterval = 1.0
-var enemyTime: TimeInterval = 0.8
+
 
 
 var musicOn = false
