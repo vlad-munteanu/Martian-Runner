@@ -34,6 +34,7 @@
 		FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */; };
 		FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */; };
 		FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE1AA421E6EE9B00E44081 /* PageControl.swift */; };
+		FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE9433C21EAB235009D7CDF /* Alertable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISceneWithInstructions.swift; sourceTree = "<group>"; };
 		FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBPageControl.h; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/GBPageControl.h"; sourceTree = "<group>"; };
 		FCCE1AA421E6EE9B00E44081 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/PageControl.swift"; sourceTree = "<group>"; };
+		FCE9433C21EAB235009D7CDF /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */,
 				FCCE1AA421E6EE9B00E44081 /* PageControl.swift */,
 				FC72AA1221E575270001DFFE /* FFNN.swift */,
+				FCE9433C21EAB235009D7CDF /* Alertable.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
+				FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,

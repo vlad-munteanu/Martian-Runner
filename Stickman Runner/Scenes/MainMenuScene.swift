@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class MainMenuScene : SKScene, SKPopMenuDelegate {
+class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
     
     let normalLabel = SKLabelNode(fontNamed: "Pixel Miners")
     let AILabel = SKLabelNode(fontNamed: "Pixel Miners")
@@ -116,8 +116,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
                 pop.slideUp(0.2)
                 
             } else if name == "Normal" {
-                let scene = NormalGameScene(size: size)
-                self.view?.presentScene(scene)
+                showAlert(withTitle: "Name", message: "Enter your name:")
             } else if name == "music" {
                 print("Music changed")
                 if (musicOn == true) {

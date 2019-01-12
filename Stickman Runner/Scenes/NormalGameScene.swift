@@ -28,10 +28,12 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     var closestEnemy = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
+
     
     var highScoreLabel: SKPointsLabel!
     
     //GameOver
+    
     
     
     override func didMove(to view: SKView) {
@@ -40,6 +42,8 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -13.0)
     }
     
+    
+   
     func didBegin(_ contact: SKPhysicsContact) {
         
         print("Contact occured")
@@ -97,8 +101,8 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         //pauseButton
         pauseLabel.fontSize = 12
         pauseLabel.fontColor = SKColor.black
-        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
-        pauseLabel.text = "Pause"
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
+        pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
         addChild(pauseLabel)
@@ -136,16 +140,12 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func checkScore() {
-        // print(enemyGenerator.allEnemies[0].position.x)
-        print("size.width :\(size.width)")
-        print("main hero :\(mainHero.position.x)")
+       
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
             if (enemyPosition.x < mainHero.position.x)
             {
-                print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
-                print(enemyGenerator.allEnemies[0].position.x)
                 
                 enemyGenerator.allEnemies.remove(at: 0)
                 scoreLabel.increment()
@@ -174,6 +174,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             let defaults = UserDefaults.standard
             defaults.set(highScore, forKey: "highscore")
         }
+        
+        print(UserDefaults.standard.integer(forKey: "highscore"))
+       
         
         
         

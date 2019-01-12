@@ -15,10 +15,10 @@ var network = FFNN(inputs: 1, hidden: 300, outputs: 1)
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
     //AI Stuff
-    var params: [[Float]] = []
+    var parameterss: [[Float]] = []
     var doneFor: [Float] = []
     var answers: [[Float]] = []
-    var neuralPlay = false
+    var isMachinePlaying = false
     
 
     var mainHero: SKStickMan!
@@ -98,8 +98,8 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         //pauseButton
         pauseLabel.fontSize = 12
         pauseLabel.fontColor = SKColor.black
-        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
-        pauseLabel.text = "Pause"
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
+        pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
         addChild(pauseLabel)
@@ -135,16 +135,12 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func checkScore() {
-        // print(enemyGenerator.allEnemies[0].position.x)
-        print("size.width :\(size.width)")
-        print("main hero :\(mainHero.position.x)")
+    
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
             if (enemyPosition.x < mainHero.position.x)
             {
-                print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
-                print(enemyGenerator.allEnemies[0].position.x)
                 
                 enemyGenerator.allEnemies.remove(at: 0)
                 scoreLabel.increment()
