@@ -13,7 +13,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
     let normalLabel = SKLabelNode(fontNamed: "Pixel Miners")
     let AILabel = SKLabelNode(fontNamed: "Pixel Miners")
     let highScoreLabel = SKLabelNode(fontNamed: "Pixel Miners")
-    let mainLabel = SKSpriteNode(imageNamed: "Sicko-Jumper")
+    let mainLabel = SKSpriteNode(imageNamed: "Martian-Runner")
     var musicButton = SKSpriteNode()
     let background = SKSpriteNode(imageNamed: "bg")
     var pop: SKPopMenu!
@@ -41,7 +41,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate {
         mainLabel.name = "sicko"
         mainLabel.zPosition = 1
         
-        musicButton.texture = SKTexture(imageNamed: "musicOn")
+        musicButton.texture = SKTexture(imageNamed: "musicOff")
         musicButton.size = CGSize(width: 40, height: 40)
         musicButton.position = CGPoint(x: size.width - 40, y: size.height*0.93)
         musicButton.zPosition = 1

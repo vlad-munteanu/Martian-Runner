@@ -13,22 +13,26 @@ import GameplayKit
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
+    var mainHero: SKStickMan!
+    var enemyGenerator: SKEnemyGenerator!
     
-var mainHero: SKStickMan!
-var enemyGenerator: SKEnemyGenerator!
+    var floorGenerator: SKFloorGenerator!
+    var cloudGenerator: SKCloudGenerator!
     
-var floorGenerator: SKFloorGenerator!
-var cloudGenerator: SKCloudGenerator!
     
-
-
-var scoreLabel: SKPointsLabel!
+    var scoreLabel: SKPointsLabel!
     
-var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    var highScore = UserDefaults.standard.integer(forKey: "highscore")
     
-var generationTimer: Timer?
-var closestEnemy = 0
+    var generationTimer: Timer?
+    var closestEnemy = 0
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    
+    
+    var highScoreLabel: SKPointsLabel!
+    
+    //GameOver
+    
     
     override func didMove(to view: SKView) {
         addEveryIntialThing()
@@ -38,7 +42,7 @@ var closestEnemy = 0
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-       print("Contact occured")
+        print("Contact occured")
         
         if contact.bodyA.categoryBitMask == badGuyCategory {
             contact.bodyA.node?.removeFromParent()
@@ -81,6 +85,8 @@ var closestEnemy = 0
         scoreLabel.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
         addChild(scoreLabel)
         
+        
+        
         //Creating the Clouds
         cloudGenerator = SKCloudGenerator(texture: nil, color: UIColor.clear, size: view!.frame.size)
         cloudGenerator.position = view!.center
@@ -97,7 +103,7 @@ var closestEnemy = 0
         
         addChild(pauseLabel)
         
-
+        
         
         
     }
@@ -130,34 +136,34 @@ var closestEnemy = 0
     }
     
     @objc func checkScore() {
-       // print(enemyGenerator.allEnemies[0].position.x)
+        // print(enemyGenerator.allEnemies[0].position.x)
         print("size.width :\(size.width)")
         print("main hero :\(mainHero.position.x)")
         if enemyGenerator.allEnemies.count > 0 {
-        let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
+            let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
-        if (enemyPosition.x < mainHero.position.x)
-        {
-              print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
-            print(enemyGenerator.allEnemies[0].position.x)
-           
-            enemyGenerator.allEnemies.remove(at: 0)
-              scoreLabel.increment()
-            
-            if(scoreLabel.number % 3 == 0) {
+            if (enemyPosition.x < mainHero.position.x)
+            {
+                print("enemy :\(enemyGenerator.allEnemies[0].position.x)")
+                print(enemyGenerator.allEnemies[0].position.x)
                 
-                floorGenerator.stop()
-                floorGenerator.start()
+                enemyGenerator.allEnemies.remove(at: 0)
+                scoreLabel.increment()
                 
-               
-                enemyGenerator.restart()
-                
-                LevelNumber += 1
-                backgroundColor = .random()
+                if(scoreLabel.number % 3 == 0) {
+                    
+                    floorGenerator.stop()
+                    floorGenerator.start()
+                    
+                    
+                    enemyGenerator.restart()
+                    
+                    LevelNumber += 1
+                    backgroundColor = .random()
+                }
             }
-        }
-        
-        
+            
+            
         }
     }
     
@@ -169,9 +175,11 @@ var closestEnemy = 0
             defaults.set(highScore, forKey: "highscore")
         }
         
+        
+        
         resetGame()
         
-
+        
     }
     
     
@@ -180,7 +188,7 @@ var closestEnemy = 0
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
         closestEnemy = 0
-
+        
         LevelNumber = 0
         likelyhoodOfWater = 0.01
         scoreTimerTime = 1

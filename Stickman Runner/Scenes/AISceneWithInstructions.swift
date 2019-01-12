@@ -11,6 +11,8 @@ import SpriteKit
 import GameplayKit
 
 class AISceneWithInstructions: SKScene {
+     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    
     var pageControl:PageControl!
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -18,6 +20,18 @@ class AISceneWithInstructions: SKScene {
         pageControl = PageControl(scene: self)
         addContent()
         pageControl.enable(numberOfPages: 4)
+        addPause()
+    }
+    
+    func addPause() {
+        //pauseButton
+        pauseLabel.fontSize = 12
+        pauseLabel.fontColor = SKColor.black
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
+        pauseLabel.text = "Pause"
+        pauseLabel.name = "pause"
+        
+        addChild(pauseLabel)
     }
     
     private func addContent() {
