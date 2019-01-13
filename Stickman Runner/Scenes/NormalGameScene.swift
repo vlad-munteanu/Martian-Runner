@@ -10,6 +10,10 @@ import SpriteKit
 import GameplayKit
 
 
+var currentNeuralNetwork = FFNN(inputs: 1, hidden: 300, outputs: 1)
+var parameters: [[Float]] = []
+var indexArray: [Float] = []
+var answers: [[Float]] = []
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -19,13 +23,14 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     var floorGenerator: SKFloorGenerator!
     var cloudGenerator: SKCloudGenerator!
     
+    var closestEnemyXPos: CGFloat = 0.0
     
     var scoreLabel: SKPointsLabel!
     
     var highScore = UserDefaults.standard.integer(forKey: "highscore")
     
     var generationTimer: Timer?
-    var closestEnemy = 0
+
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
 
@@ -126,7 +131,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         if let name = touchedNode.name {
             if name == "pause" {
                 enemyGenerator.onCollision()
-                closestEnemy = 0
+                closestEnemyXPos = 0.0
                 LevelNumber = 0
                 likelyhoodOfWater = 0.01
                 scoreTimerTime = 1
@@ -144,7 +149,8 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
-            if (enemyPosition.x < mainHero.position.x)
+            closestEnemyXPos = enemyPosition.x
+            if (closestEnemyXPos < mainHero.position.x)
             {
                 
                 enemyGenerator.allEnemies.remove(at: 0)
@@ -165,6 +171,12 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
+        
+        if closestEnemyXPos != 0.0 && !(indexArray.contains(Float(closestEnemyXPos))) {
+            parameters.append([Float(closestEnemyXPos)])
+            answers.append([0])
+        }
+        
     }
     
     func gameOver() {
@@ -175,9 +187,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             defaults.set(highScore, forKey: "highscore")
         }
         
-        print(UserDefaults.standard.integer(forKey: "highscore"))
-       
-        
+        print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
         
         
         resetGame()
@@ -190,7 +200,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         //Creating the new scene
         // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
-        closestEnemy = 0
+        closestEnemyXPos = 0.0
         
         LevelNumber = 0
         likelyhoodOfWater = 0.01

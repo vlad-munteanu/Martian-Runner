@@ -10,14 +10,11 @@ import SpriteKit
 import GameplayKit
 
 
-var network = FFNN(inputs: 1, hidden: 300, outputs: 1)
+
 
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
     //AI Stuff
-    var parameterss: [[Float]] = []
-    var doneFor: [Float] = []
-    var answers: [[Float]] = []
     var isMachinePlaying = false
     
 
@@ -113,7 +110,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         if(mainHero.position.y > brickHeight) {
         } else {
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
+//            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
