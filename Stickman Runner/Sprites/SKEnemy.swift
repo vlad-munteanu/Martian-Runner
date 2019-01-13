@@ -33,7 +33,6 @@ class SKEnemy: SKSpriteNode {
         self.run(SKAction.repeatForever(SKAction.animate(with: slimey, timePerFrame: 0.1)))
         
         var moveLeft = SKAction.moveBy(x: -300, y: 0, duration: timer)
-        print(timer)
         
         self.run(SKAction.repeatForever(moveLeft))
     }
