@@ -13,7 +13,7 @@ import GameplayKit
 var currentNeuralNetwork = FFNN(inputs: 1, hidden: 300, outputs: 1)
 var parameters: [[Float]] = []
 var indexArray: [Float] = []
-var answers: [[Float]] = []
+var neuralAnswers: [[Float]] = []
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -174,7 +174,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         if closestEnemyXPos != 0.0 && !(indexArray.contains(Float(closestEnemyXPos))) {
             parameters.append([Float(closestEnemyXPos)])
-            answers.append([0])
+            neuralAnswers.append([0])
         }
         
     }
@@ -189,29 +189,38 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
         
+        let res = parameters.cleanUp(withAnswers: neuralAnswers)
+        print("Old: \(parameters)")
+        parameters = res.this
+        neuralAnswers = res.answers
+        print("New: \(parameters)")
+        print(neuralAnswers)
+        _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.1)
+        print(currentNeuralNetwork.getWeights())
         
-        resetGame()
+       // resetGame()
         
         
     }
     
     
-    func resetGame() {
-        //Creating the new scene
-        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        enemyGenerator.onCollision()
-        closestEnemyXPos = 0.0
-        
-        LevelNumber = 0
-        likelyhoodOfWater = 0.01
-        scoreTimerTime = 1
-        xPerSec = 150.0
-        
-        
-        let scene = NormalGameScene(size: size)
-        self.view?.presentScene(scene)
-        
-    }
+//    func resetGame() {
+//        //Creating the new scene
+//        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+//        enemyGenerator.onCollision()
+//        closestEnemyXPos = 0.0
+//
+//        LevelNumber = 0
+//        likelyhoodOfWater = 0.01
+//        scoreTimerTime = 1
+//        xPerSec = 150.0
+//
+//
+//        let scene = NormalGameScene(size: size)
+//        self.view?.presentScene(scene)
+//
+//    }
+    
     func blinkAnimation() -> SKAction {
         
         let fadeOut = SKAction.fadeAlpha(to: 0, duration: 0.6)
@@ -238,7 +247,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         //make sure stickman stays in place
         mainHero.position.x = size.width*0.15
         if(mainHero.position.y < -size.height) {
-            resetGame()
+          //  resetGame()
         }
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
@@ -262,3 +271,54 @@ extension UIColor {
                        alpha: 1.0)
     }
 }
+
+extension Array {
+    
+    func sample() -> (ele: Element, index: Int) {
+        let randomIndex = Int(arc4random()) % count
+        return (ele: self[randomIndex], index: randomIndex)
+    }
+    
+    func cleanUp(withAnswers: [[Float]]) -> (this: [[Float]], answers: [[Float]]) {
+        var amountZero = 0
+        var amountOne = 0
+        var result: (this: [[Float]], answers: [[Float]]) = (this: [], answers: [])
+        var this: [[Float]] = []
+        var answers: [[Float]] = []
+        for (index, _) in self.enumerated() {
+            if withAnswers[index] == [0] {
+                amountZero += 1
+            } else if withAnswers[index] == [1] {
+                amountOne += 1
+            }
+        }
+        for i in self {
+            this.append(i as! [Float])
+        }
+        answers = withAnswers
+        while (amountOne) < amountZero {
+            var continueIt = true
+            for (index, _) in this.enumerated() {
+                if continueIt {
+                    if answers[index] == [0] {
+                        answers.remove(at: index)
+                        this.remove(at: index)
+                        continueIt = false
+                    }
+                }
+            }
+            amountOne = 0
+            amountZero = 0
+            for (index, _) in this.enumerated() {
+                if answers[index] == [0] {
+                    amountZero += 1
+                } else if answers[index] == [1] {
+                    amountOne += 1
+                }
+            }
+        }
+        result = (this: this, answers: answers)
+        return result
+    }
+}
+
