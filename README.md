@@ -13,6 +13,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Collin Hundley for SwiftAI (https://github.com/Swift-AI/Swift-AI)
+* The comp sci bros and Snyder for inspiration
