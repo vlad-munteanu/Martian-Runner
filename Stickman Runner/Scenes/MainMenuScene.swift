@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
+class MainMenuScene : SKScene, Alertable {
     
     let normalLabel = SKLabelNode()
     let AILabel = SKLabelNode()
@@ -18,7 +18,6 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
     let mainLabel = SKSpriteNode(imageNamed: "Martian-Runner")
     var musicButton = SKSpriteNode()
     let background = SKSpriteNode(imageNamed: "bg")
-    var pop: SKPopMenu!
     
     override func didMove(to view: SKView) {
     
@@ -35,7 +34,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         AILabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         AILabel.position = CGPoint(x: size.width / 2, y: size.height * 0.4 )
         AILabel.text = "Choose Netwok"
-        AILabel.name = "AI"
+        AILabel.name = "choose"
         AILabel.zPosition = 1
         
         instructionLabel.fontSize = 42
@@ -65,55 +64,11 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         //addChild(highScoreLabel)
         addChild(mainLabel)
         
-        pop = SKPopMenu(numberOfSections:2, sceneFrame: self.frame)
-        let firstLabel = SKLabelNode(fontNamed: "Pixel Miners")
-        let secondLabel = SKLabelNode(fontNamed: "Pixel Miners")
-        firstLabel.text = "Instructions"
-        firstLabel.fontSize = 15
-        firstLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        secondLabel.text = "Normal"
-        secondLabel.fontSize = 15
-        secondLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-       
-    
-        pop.setSection(1, text:"normal", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), label: secondLabel)
-       
-        pop.setSection(2, text:"instructions", color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), label: firstLabel)
-        
-        pop.popMenuDelegate = self
-        
-        pop.zPosition = 2
-        addChild(pop)
-        
-        
         // set the background
         background.size = CGSize(width: size.width, height: size.height)
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
   
         addChild(background)
-    }
-    
-    func sectionTapped(name:String) {
-        if name == "instructions" {
-            print("Instructions")
-            pop.slideDown(0.2)
-            let scene = AISceneWithInstructions(size: size)
-            self.view?.presentScene(scene)
-        } else if name == "normal" {
-            print("normal")
-            pop.slideDown(0.2)
-            let scene = ChooseNetwork(size: size)
-            self.view?.presentScene(scene)
-        }
-    }
-    
-    func popMenuDidAppear() {
-        // pop menu appeared
-    }
-    
-    func popMenuDidDisappear() {
-        // pop menu... wait for it... disappeared 😱
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -122,9 +77,9 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
-            if name == "AI" {
-                pop.slideUp(0.2)
-                
+            if name == "choose" {
+                let scene = ChooseNetwork(size: size)
+                self.view?.presentScene(scene)
             } else if name == "Normal" {
                 showAlert(withTitle: "Name", message: "Enter your name:")
             } else if name == "music" {
@@ -136,8 +91,9 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
                     musicButton.texture = SKTexture(imageNamed: "musicOn")
                     musicOn = true
                 }
-            } else if name == "instructions" {
-                
+            } else if name == "learn" {
+                let scene = AISceneWithInstructions(size: size)
+                self.view?.presentScene(scene)
             }
             
         }
