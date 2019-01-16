@@ -11,9 +11,10 @@ import SpriteKit
 
 class ChooseNetwork : SKScene {
     var setOfLabels = [SKLabelNode(fontNamed: "Pixel Miners")]
-    
+     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
+        
         addIntialLabels()
        
     }
@@ -24,7 +25,7 @@ class ChooseNetwork : SKScene {
         setOfLabels[0].fontSize = 15
         addChild(setOfLabels[0])
         
-        var xPosVar: CGFloat = 0.7
+        var xPosVar: CGFloat = 0.79
         var counter = 0
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             
@@ -50,6 +51,15 @@ class ChooseNetwork : SKScene {
             setOfLabels.last!.position = CGPoint(x: size.width / 4, y: size.height * xPosVar)
             addChild(setOfLabels.last!)
         }
+        
+        //pauseButton
+        pauseLabel.fontSize = 12
+        pauseLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
+        pauseLabel.text = "Home"
+        pauseLabel.name = "pause"
+        
+        addChild(pauseLabel)
     }
     
     
@@ -59,11 +69,14 @@ class ChooseNetwork : SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
-           
+            if name == "pause" {
+                let scene = MainMenuScene(size: size)
+                self.view?.presentScene(scene)
+            } else {
             currentName = name
             let scene = AIScene(size: size)
             self.view?.presentScene(scene)
-            
+            }
         }
         
     }
