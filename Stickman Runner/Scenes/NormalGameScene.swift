@@ -196,6 +196,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         print("New: \(parameters)")
         print(neuralAnswers)
         _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.1)
+        
         print(currentNeuralNetwork.getWeights())
         print("going to AI Scene now")
         let scene = AIScene(size: size)
