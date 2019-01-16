@@ -86,9 +86,10 @@ class ChooseNetwork : SKScene, Alertable{
             } else if name == "remove" {
                 showAlert(withTitle: "Remove Network", message: "Enter name of network you would like to remove:")
             } else {
-            currentName = name
-            let scene = AIScene(size: size)
-            self.view?.presentScene(scene)
+                currentName = name
+                _ = try! currentNeuralNetwork.resetWithWeights(UserDefaults.standard.array(forKey: name) as! [Float])
+                let scene = AIScene(size: size)
+                self.view?.presentScene(scene)
             }
         }
         

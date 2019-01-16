@@ -17,6 +17,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     //AI Stuff
     var isMachinePlaying = false
     
+    var isOnGround = true
 
     var mainHero: SKStickMan!
     var enemyGenerator: SKEnemyGenerator!
@@ -25,7 +26,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     var cloudGenerator: SKCloudGenerator!
     
     
-    
+    var closestEnemyXPos: CGFloat = 0.0
     var scoreLabel: SKPointsLabel!
     
     var highScore = UserDefaults.standard.integer(forKey: "highscore")
@@ -136,7 +137,8 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
-            if (enemyPosition.x < mainHero.position.x)
+            closestEnemyXPos = enemyPosition.x
+            if (closestEnemyXPos < mainHero.position.x)
             {
                 
                 enemyGenerator.allEnemies.remove(at: 0)
@@ -160,14 +162,18 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver() {
+        cloudGenerator.stopGeneratingMoreClouds()
+        let defaults = UserDefaults.standard
         if highScore < scoreLabel.number  {
             highScore = scoreLabel.number
             
-            let defaults = UserDefaults.standard
             defaults.set(highScore, forKey: "highscore")
         }
         
-        resetGame()
+        print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
+       
+        let scene = MainMenuScene(size: size)
+        self.view?.presentScene(scene)
         
         
     }
@@ -187,27 +193,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
        // let scene = NormalGameScene(size: size)
        // self.view?.presentScene(scene)
-        
-    }
-    func blinkAnimation() -> SKAction {
-        
-        let fadeOut = SKAction.fadeAlpha(to: 0, duration: 0.6)
-        let fadeIn = SKAction.fadeAlpha(to: 1, duration: 0.6)
-        
-        let blink = SKAction.repeatForever(SKAction.sequence([fadeOut,fadeIn]))
-        return blink
-    }
-    
-    @objc func setUp() {
-        removeItems()
-    }
-    
-    func removeItems() {
-        for child in children {
-            if child.position.y <= -self.size.height-100 {
-                child.removeFromParent()
-            }
-        }
     }
     
     
@@ -220,8 +205,22 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
+        if(mainHero.position.y > brickHeight) {
+            isOnGround = false
+        } else {
+            isOnGround = true
+        }
         checkScore()
         
+        let networkValue = try! currentNeuralNetwork.update(inputs: [Float(closestEnemyXPos)]).first!
+        let networkWantsToJump = networkValue > 0.99
+        print("Network value: \(networkValue) \(networkWantsToJump)")
+        if networkWantsToJump && isOnGround{
+           mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
+            isOnGround = false
+        } else if !(networkWantsToJump) {
+            isOnGround = true
+        }
     }
 }
 
