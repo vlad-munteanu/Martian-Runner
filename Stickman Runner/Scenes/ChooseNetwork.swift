@@ -19,12 +19,12 @@ class ChooseNetwork : SKScene {
     }
     
     func addIntialLabels() {
-        setOfLabels[0].position = CGPoint(x: size.width / 2, y: size.height * 0.9)
+        setOfLabels[0].position = CGPoint(x: size.width / 2, y: size.height * 0.85)
         setOfLabels[0].text = "Choose a Neural Network"
         setOfLabels[0].fontSize = 15
         addChild(setOfLabels[0])
         
-        var xPosVar: CGFloat = 0.8
+        var xPosVar: CGFloat = 0.7
         var counter = 0
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             
@@ -32,10 +32,9 @@ class ChooseNetwork : SKScene {
                 print("\(key) = \(value) \n")
                 setOfLabels.append(SKLabelNode(text: key))
                 setOfLabels.last!.name = key
-                setOfLabels.last!.fontSize = 40
-                setOfLabels.last!.horizontalAlignmentMode = .left
+                setOfLabels.last!.fontSize = 50
                 setOfLabels.last!.fontColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-                setOfLabels.last!.position = CGPoint(x: size.width / 4, y: size.height * xPosVar)
+                setOfLabels.last!.position = CGPoint(x: size.width / 2, y: size.height * xPosVar)
                 addChild(setOfLabels.last!)
                 counter += 1
                 xPosVar -= 0.1

@@ -24,10 +24,13 @@ extension Alertable where Self: SKScene {
         
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             let textField = alertController.textFields![0] as UITextField
+            
+            if(textField.text != "") {
             print("Text field: \(textField.text)")
             currentName = textField.text!
             let scene = NormalGameScene(size: self.size)
             self.view?.presentScene(scene)
+            }
         }))
         
         view?.window?.rootViewController?.present(alertController, animated: true)
