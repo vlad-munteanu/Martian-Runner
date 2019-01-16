@@ -181,10 +181,10 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         cloudGenerator.stopGeneratingMoreClouds()
+        let defaults = UserDefaults.standard
         if highScore < scoreLabel.number  {
             highScore = scoreLabel.number
             
-            let defaults = UserDefaults.standard
             defaults.set(highScore, forKey: "highscore")
         }
         
@@ -198,10 +198,19 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         print(neuralAnswers)
         _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.1)
         
-        print(currentNeuralNetwork.getWeights())
+        print("weights\(currentNeuralNetwork.getWeights())")
+        
+        defaults.set(currentNeuralNetwork.getWeights(), forKey: currentName)
+        
         print("going to AI Scene now")
+        
+        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+            print("\(key) = \(value) \n")
+        }
+        
         let scene = AIScene(size: size)
         self.view?.presentScene(scene)
+        
         
        // resetGame()
         
