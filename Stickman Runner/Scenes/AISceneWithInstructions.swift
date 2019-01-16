@@ -28,7 +28,7 @@ class AISceneWithInstructions: SKScene {
         pauseLabel.fontSize = 12
         pauseLabel.fontColor = SKColor.black
         pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
-        pauseLabel.text = "Pause"
+        pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
         addChild(pauseLabel)
