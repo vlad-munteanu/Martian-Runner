@@ -180,6 +180,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver() {
+        cloudGenerator.stopGeneratingMoreClouds()
         if highScore < scoreLabel.number  {
             highScore = scoreLabel.number
             

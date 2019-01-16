@@ -21,22 +21,16 @@
 		FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */; };
 		FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30921E421E3009803B0 /* SKPointsLabel.swift */; };
 		FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */; };
-		FC612FBF21EEF79B00411D0C /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB321EEF79A00411D0C /* Activation.swift */; };
-		FC612FC021EEF79B00411D0C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB421EEF79A00411D0C /* Error.swift */; };
-		FC612FC121EEF79B00411D0C /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB521EEF79A00411D0C /* Vector.swift */; };
-		FC612FC221EEF79B00411D0C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB621EEF79A00411D0C /* Storage.swift */; };
-		FC612FC321EEF79B00411D0C /* Dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB721EEF79A00411D0C /* Dataset.swift */; };
-		FC612FC421EEF79B00411D0C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB821EEF79A00411D0C /* Cache.swift */; };
-		FC612FC521EEF79B00411D0C /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB921EEF79B00411D0C /* Structure.swift */; };
-		FC612FC621EEF79B00411D0C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBA21EEF79B00411D0C /* Matrix.swift */; };
-		FC612FC721EEF79B00411D0C /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBB21EEF79B00411D0C /* Operations.swift */; };
-		FC612FC821EEF79B00411D0C /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBC21EEF79B00411D0C /* NeuralNet.swift */; };
-		FC612FC921EEF79B00411D0C /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */; };
-		FC612FCA21EEF79B00411D0C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBE21EEF79B00411D0C /* Random.swift */; };
+		FC612FD221EEF96C00411D0C /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FCB21EEF96C00411D0C /* Vector.swift */; };
+		FC612FD321EEF96C00411D0C /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FCC21EEF96C00411D0C /* FFNN+Storage.swift */; };
+		FC612FD421EEF96C00411D0C /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FCD21EEF96C00411D0C /* Operations.swift */; };
+		FC612FD521EEF96C00411D0C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FCE21EEF96C00411D0C /* Matrix.swift */; };
+		FC612FD621EEF96C00411D0C /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FCF21EEF96C00411D0C /* FFNN.swift */; };
+		FC612FD721EEF96C00411D0C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FD021EEF96C00411D0C /* Storage.swift */; };
+		FC612FD821EEF96C00411D0C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FD121EEF96C00411D0C /* Random.swift */; };
 		FC72AA0D21E525150001DFFE /* SKBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0C21E525150001DFFE /* SKBlock.swift */; };
 		FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */; };
 		FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */; };
-		FC72AA1321E575270001DFFE /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1221E575270001DFFE /* FFNN.swift */; };
 		FC7361F121E444340024624C /* SKCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361EF21E444330024624C /* SKCloud.swift */; };
 		FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F021E444340024624C /* SKKCloudGenerator.swift */; };
 		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
@@ -67,22 +61,16 @@
 		FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorGenerator.swift; sourceTree = "<group>"; };
 		FC31E30921E421E3009803B0 /* SKPointsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPointsLabel.swift; sourceTree = "<group>"; };
 		FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorBlock.swift; sourceTree = "<group>"; };
-		FC612FB321EEF79A00411D0C /* Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
-		FC612FB421EEF79A00411D0C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		FC612FB521EEF79A00411D0C /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
-		FC612FB621EEF79A00411D0C /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		FC612FB721EEF79A00411D0C /* Dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataset.swift; sourceTree = "<group>"; };
-		FC612FB821EEF79A00411D0C /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		FC612FB921EEF79B00411D0C /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
-		FC612FBA21EEF79B00411D0C /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		FC612FBB21EEF79B00411D0C /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
-		FC612FBC21EEF79B00411D0C /* NeuralNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNet.swift; sourceTree = "<group>"; };
-		FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
-		FC612FBE21EEF79B00411D0C /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		FC612FCB21EEF96C00411D0C /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/Vector.swift"; sourceTree = "<group>"; };
+		FC612FCC21EEF96C00411D0C /* FFNN+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FFNN+Storage.swift"; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/FFNN+Storage.swift"; sourceTree = "<group>"; };
+		FC612FCD21EEF96C00411D0C /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Operations.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/Operations.swift"; sourceTree = "<group>"; };
+		FC612FCE21EEF96C00411D0C /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/Matrix.swift"; sourceTree = "<group>"; };
+		FC612FCF21EEF96C00411D0C /* FFNN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFNN.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/FFNN.swift"; sourceTree = "<group>"; };
+		FC612FD021EEF96C00411D0C /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/Storage.swift"; sourceTree = "<group>"; };
+		FC612FD121EEF96C00411D0C /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = "../../../../../../../../Downloads/Nimble-Ninja-with-AI-master/Nimble Ninja/Random.swift"; sourceTree = "<group>"; };
 		FC72AA0C21E525150001DFFE /* SKBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBlock.swift; sourceTree = "<group>"; };
 		FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemy.swift; sourceTree = "<group>"; };
 		FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemyGenerator.swift; sourceTree = "<group>"; };
-		FC72AA1221E575270001DFFE /* FFNN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
 		FC7361EF21E444330024624C /* SKCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKCloud.swift; sourceTree = "<group>"; };
 		FC7361F021E444340024624C /* SKKCloudGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKKCloudGenerator.swift; sourceTree = "<group>"; };
 		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
@@ -165,19 +153,13 @@
 		FC612FB221EEF78000411D0C /* SwiftAI */ = {
 			isa = PBXGroup;
 			children = (
-				FC72AA1221E575270001DFFE /* FFNN.swift */,
-				FC612FB321EEF79A00411D0C /* Activation.swift */,
-				FC612FB821EEF79A00411D0C /* Cache.swift */,
-				FC612FB721EEF79A00411D0C /* Dataset.swift */,
-				FC612FB421EEF79A00411D0C /* Error.swift */,
-				FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */,
-				FC612FBA21EEF79B00411D0C /* Matrix.swift */,
-				FC612FBC21EEF79B00411D0C /* NeuralNet.swift */,
-				FC612FBB21EEF79B00411D0C /* Operations.swift */,
-				FC612FBE21EEF79B00411D0C /* Random.swift */,
-				FC612FB621EEF79A00411D0C /* Storage.swift */,
-				FC612FB921EEF79B00411D0C /* Structure.swift */,
-				FC612FB521EEF79A00411D0C /* Vector.swift */,
+				FC612FCF21EEF96C00411D0C /* FFNN.swift */,
+				FC612FCC21EEF96C00411D0C /* FFNN+Storage.swift */,
+				FC612FCE21EEF96C00411D0C /* Matrix.swift */,
+				FC612FCD21EEF96C00411D0C /* Operations.swift */,
+				FC612FD121EEF96C00411D0C /* Random.swift */,
+				FC612FD021EEF96C00411D0C /* Storage.swift */,
+				FC612FCB21EEF96C00411D0C /* Vector.swift */,
 			);
 			path = SwiftAI;
 			sourceTree = "<group>";
@@ -345,37 +327,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC612FC621EEF79B00411D0C /* Matrix.swift in Sources */,
 				FC7361FE21E456DA0024624C /* AIScene.swift in Sources */,
 				FC72AA0D21E525150001DFFE /* SKBlock.swift in Sources */,
-				FC612FC121EEF79B00411D0C /* Vector.swift in Sources */,
+				FC612FD821EEF96C00411D0C /* Random.swift in Sources */,
+				FC612FD221EEF96C00411D0C /* Vector.swift in Sources */,
+				FC612FD421EEF96C00411D0C /* Operations.swift in Sources */,
 				FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */,
 				FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */,
-				FC612FC221EEF79B00411D0C /* Storage.swift in Sources */,
-				FC612FC421EEF79B00411D0C /* Cache.swift in Sources */,
-				FC612FCA21EEF79B00411D0C /* Random.swift in Sources */,
 				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
 				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
 				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
+				FC612FD721EEF96C00411D0C /* Storage.swift in Sources */,
 				FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */,
-				FC612FC521EEF79B00411D0C /* Structure.swift in Sources */,
 				FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */,
 				FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */,
 				FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */,
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
+				FC612FD521EEF96C00411D0C /* Matrix.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
+				FC612FD321EEF96C00411D0C /* FFNN+Storage.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
-				FC612FC021EEF79B00411D0C /* Error.swift in Sources */,
 				FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
-				FC612FC921EEF79B00411D0C /* FFNN+Storage.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
-				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,
-				FC612FC721EEF79B00411D0C /* Operations.swift in Sources */,
-				FC612FC321EEF79B00411D0C /* Dataset.swift in Sources */,
-				FC612FC821EEF79B00411D0C /* NeuralNet.swift in Sources */,
+				FC612FD621EEF96C00411D0C /* FFNN.swift in Sources */,
 				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
-				FC612FBF21EEF79B00411D0C /* Activation.swift in Sources */,
 				FC31E30421E41C64009803B0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
