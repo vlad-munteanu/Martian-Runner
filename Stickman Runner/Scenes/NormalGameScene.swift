@@ -205,7 +205,10 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         print("going to AI Scene now")
         
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
+            
+            if let temp = value as? [Float] {
+                print("\(key) = \(value) \n")
+            }
         }
         
         let scene = AIScene(size: size)

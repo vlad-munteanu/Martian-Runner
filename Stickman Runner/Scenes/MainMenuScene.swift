@@ -68,11 +68,11 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
        
     
         pop.setSection(1, text:"normal", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), label: secondLabel)
-        
        
         pop.setSection(2, text:"instructions", color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), label: firstLabel)
         
         pop.popMenuDelegate = self
+        
         pop.zPosition = 2
         addChild(pop)
         
@@ -93,10 +93,33 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         } else if name == "normal" {
             print("normal")
             pop.slideDown(0.2)
-            let scene = AIScene(size: size)
+            let scene = ChooseNetwork(size: size)
             self.view?.presentScene(scene)
         }
     }
+    
+//    func setupMenu() {
+//        networkPop = SKPopMenu(numberOfSections:6, sceneFrame: self.frame)
+//        networkPop.popMenuDelegate = self
+//        
+//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+//            var counter = 1
+//            
+//            if let temp = value as? [Float] {
+//                print("\(key) = \(value) \n")
+//                var tempLabel = SKLabelNode(fontNamed: "Pixel Miners")
+//                tempLabel.name = String(key)
+//                tempLabel.text = String(key)
+//                tempLabel.fontSize = 15
+//                tempLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//                
+//                networkPop.setSection(counter, text:"normal", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), label: tempLabel)
+//                counter += 1
+//            }
+//        }
+//        networkPop.zPosition = 3
+//        addChild(networkPop)
+//    }
     
     func popMenuDidAppear() {
         // pop menu appeared
