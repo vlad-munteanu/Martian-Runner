@@ -46,12 +46,20 @@ class AISceneWithInstructions: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
+        let touch:UITouch = touches.first! as UITouch
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
         if pageControl.handleTouch(touch: touch) {
             //no op
         }
         else {
-            //handle touch
+            if let name = touchedNode.name {
+                if name == "pause" {
+                    let scene = MainMenuScene(size: size)
+                    self.view?.presentScene(scene)
+                }
+                
+            }
         }
     }
 }
