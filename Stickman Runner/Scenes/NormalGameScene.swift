@@ -104,9 +104,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         cloudGenerator.startGeneratingMoreClouds(spawnTime: 10)
         
         //pauseButton
-        pauseLabel.fontSize = 12
+        pauseLabel.fontSize = 16
         pauseLabel.fontColor = SKColor.black
-        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
         pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
