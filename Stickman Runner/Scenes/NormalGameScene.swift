@@ -204,14 +204,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         print("going to AI Scene now")
         
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            
-            if let temp = value as? [Float] {
-                print("\(key) = \(value) \n")
-            }
-        }
-        
-        let scene = AIScene(size: size)
+        let scene = ChooseNetwork(size: size)
         self.view?.presentScene(scene)
         
         

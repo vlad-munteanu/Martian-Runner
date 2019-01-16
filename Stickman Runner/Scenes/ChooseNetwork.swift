@@ -9,9 +9,10 @@
 import Foundation
 import SpriteKit
 
-class ChooseNetwork : SKScene {
+class ChooseNetwork : SKScene, Alertable{
     var setOfLabels = [SKLabelNode(fontNamed: "Pixel Miners")]
-     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    let removeLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     override func didMove(to view: SKView) {
         
@@ -21,11 +22,11 @@ class ChooseNetwork : SKScene {
     
     func addIntialLabels() {
         setOfLabels[0].position = CGPoint(x: size.width / 2, y: size.height * 0.85)
-        setOfLabels[0].text = "Choose a Neural Network"
+        setOfLabels[0].text = "Choose_a_Neural_Network"
         setOfLabels[0].fontSize = 15
         addChild(setOfLabels[0])
         
-        var xPosVar: CGFloat = 0.79
+        var xPosVar: CGFloat = 0.7
         var counter = 0
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             
@@ -43,7 +44,7 @@ class ChooseNetwork : SKScene {
         }
         
         if(counter == 0) {
-            setOfLabels.append(SKLabelNode(text: "No networks found!"))
+            setOfLabels.append(SKLabelNode(text: "No_networks_found!"))
             setOfLabels.last!.name = "no network"
             setOfLabels.last!.fontSize = 30
             setOfLabels.last!.horizontalAlignmentMode = .left
@@ -53,13 +54,22 @@ class ChooseNetwork : SKScene {
         }
         
         //pauseButton
-        pauseLabel.fontSize = 12
+        pauseLabel.fontSize = 14
         pauseLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
         pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
         addChild(pauseLabel)
+        
+        removeLabel.fontSize = 20
+        removeLabel.fontColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        removeLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.2)
+        removeLabel.text = "Remove_A_Network"
+        removeLabel.name = "remove"
+        
+        addChild(removeLabel)
+        
     }
     
     
@@ -72,6 +82,8 @@ class ChooseNetwork : SKScene {
             if name == "pause" {
                 let scene = MainMenuScene(size: size)
                 self.view?.presentScene(scene)
+            } else if name == "remove" {
+                showAlert(withTitle: "Remove Network", message: "Enter name of network you would like to remove:")
             } else {
             currentName = name
             let scene = AIScene(size: size)
