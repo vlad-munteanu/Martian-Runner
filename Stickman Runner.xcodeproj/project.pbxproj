@@ -39,6 +39,7 @@
 		FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */; };
 		FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */; };
 		FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE1AA421E6EE9B00E44081 /* PageControl.swift */; };
+		FCD387C421EF754100E9F095 /* ChooseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD387C321EF754100E9F095 /* ChooseNetwork.swift */; };
 		FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE9433C21EAB235009D7CDF /* Alertable.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISceneWithInstructions.swift; sourceTree = "<group>"; };
 		FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBPageControl.h; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/GBPageControl.h"; sourceTree = "<group>"; };
 		FCCE1AA421E6EE9B00E44081 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/PageControl.swift"; sourceTree = "<group>"; };
+		FCD387C321EF754100E9F095 /* ChooseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNetwork.swift; sourceTree = "<group>"; };
 		FCE9433C21EAB235009D7CDF /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FC7361F921E454A10024624C /* MainMenuScene.swift */,
+				FCD387C321EF754100E9F095 /* ChooseNetwork.swift */,
 				FC31E2F021E41B27009803B0 /* NormalGameScene.swift */,
 				FC7361FD21E456DA0024624C /* AIScene.swift */,
 				FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */,
@@ -334,6 +337,7 @@
 				FC612FD421EEF96C00411D0C /* Operations.swift in Sources */,
 				FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */,
 				FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */,
+				FCD387C421EF754100E9F095 /* ChooseNetwork.swift in Sources */,
 				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
 				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
 				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
