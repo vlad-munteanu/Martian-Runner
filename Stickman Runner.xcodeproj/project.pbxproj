@@ -21,6 +21,18 @@
 		FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */; };
 		FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30921E421E3009803B0 /* SKPointsLabel.swift */; };
 		FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */; };
+		FC612FBF21EEF79B00411D0C /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB321EEF79A00411D0C /* Activation.swift */; };
+		FC612FC021EEF79B00411D0C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB421EEF79A00411D0C /* Error.swift */; };
+		FC612FC121EEF79B00411D0C /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB521EEF79A00411D0C /* Vector.swift */; };
+		FC612FC221EEF79B00411D0C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB621EEF79A00411D0C /* Storage.swift */; };
+		FC612FC321EEF79B00411D0C /* Dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB721EEF79A00411D0C /* Dataset.swift */; };
+		FC612FC421EEF79B00411D0C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB821EEF79A00411D0C /* Cache.swift */; };
+		FC612FC521EEF79B00411D0C /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FB921EEF79B00411D0C /* Structure.swift */; };
+		FC612FC621EEF79B00411D0C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBA21EEF79B00411D0C /* Matrix.swift */; };
+		FC612FC721EEF79B00411D0C /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBB21EEF79B00411D0C /* Operations.swift */; };
+		FC612FC821EEF79B00411D0C /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBC21EEF79B00411D0C /* NeuralNet.swift */; };
+		FC612FC921EEF79B00411D0C /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */; };
+		FC612FCA21EEF79B00411D0C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC612FBE21EEF79B00411D0C /* Random.swift */; };
 		FC72AA0D21E525150001DFFE /* SKBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0C21E525150001DFFE /* SKBlock.swift */; };
 		FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */; };
 		FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */; };
@@ -30,7 +42,6 @@
 		FC7361F721E4497D0024624C /* Pixel-Miners.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC7361F621E4497D0024624C /* Pixel-Miners.otf */; };
 		FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361F921E454A10024624C /* MainMenuScene.swift */; };
 		FC7361FE21E456DA0024624C /* AIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7361FD21E456DA0024624C /* AIScene.swift */; };
-		FC73620221E45C050024624C /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FC73620121E45C050024624C /* Sources */; };
 		FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */; };
 		FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */; };
 		FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE1AA421E6EE9B00E44081 /* PageControl.swift */; };
@@ -56,6 +67,18 @@
 		FC31E30721E41CC4009803B0 /* SKFloorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorGenerator.swift; sourceTree = "<group>"; };
 		FC31E30921E421E3009803B0 /* SKPointsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPointsLabel.swift; sourceTree = "<group>"; };
 		FC31E30D21E426E7009803B0 /* SKFloorBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKFloorBlock.swift; sourceTree = "<group>"; };
+		FC612FB321EEF79A00411D0C /* Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
+		FC612FB421EEF79A00411D0C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		FC612FB521EEF79A00411D0C /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		FC612FB621EEF79A00411D0C /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		FC612FB721EEF79A00411D0C /* Dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataset.swift; sourceTree = "<group>"; };
+		FC612FB821EEF79A00411D0C /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		FC612FB921EEF79B00411D0C /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
+		FC612FBA21EEF79B00411D0C /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		FC612FBB21EEF79B00411D0C /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		FC612FBC21EEF79B00411D0C /* NeuralNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNet.swift; sourceTree = "<group>"; };
+		FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
+		FC612FBE21EEF79B00411D0C /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		FC72AA0C21E525150001DFFE /* SKBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBlock.swift; sourceTree = "<group>"; };
 		FC72AA0E21E552EC0001DFFE /* SKEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemy.swift; sourceTree = "<group>"; };
 		FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKEnemyGenerator.swift; sourceTree = "<group>"; };
@@ -65,7 +88,6 @@
 		FC7361F621E4497D0024624C /* Pixel-Miners.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Miners.otf"; sourceTree = "<group>"; };
 		FC7361F921E454A10024624C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		FC7361FD21E456DA0024624C /* AIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIScene.swift; sourceTree = "<group>"; };
-		FC73620121E45C050024624C /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPopMenu.swift; sourceTree = "<group>"; };
 		FCA43D8B21E6D5EE00FED3E7 /* AISceneWithInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISceneWithInstructions.swift; sourceTree = "<group>"; };
 		FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBPageControl.h; path = "../../../../../../../Downloads/GBPageControl-master-3/GBPageControl/GBPageControl.h"; sourceTree = "<group>"; };
@@ -119,7 +141,6 @@
 				FC7361F821E4548B0024624C /* Scenes */,
 				FC31E30221E41B7F009803B0 /* Sprites */,
 				FC7361FF21E459620024624C /* Supporting Files */,
-				FC73620121E45C050024624C /* Sources */,
 				FC31E2F721E41B29009803B0 /* Assets.xcassets */,
 				FC31E2FC21E41B29009803B0 /* Info.plist */,
 				FC31E30321E41C64009803B0 /* Constants.swift */,
@@ -139,6 +160,26 @@
 				FC72AA1021E552F80001DFFE /* SKEnemyGenerator.swift */,
 			);
 			path = Sprites;
+			sourceTree = "<group>";
+		};
+		FC612FB221EEF78000411D0C /* SwiftAI */ = {
+			isa = PBXGroup;
+			children = (
+				FC72AA1221E575270001DFFE /* FFNN.swift */,
+				FC612FB321EEF79A00411D0C /* Activation.swift */,
+				FC612FB821EEF79A00411D0C /* Cache.swift */,
+				FC612FB721EEF79A00411D0C /* Dataset.swift */,
+				FC612FB421EEF79A00411D0C /* Error.swift */,
+				FC612FBD21EEF79B00411D0C /* FFNN+Storage.swift */,
+				FC612FBA21EEF79B00411D0C /* Matrix.swift */,
+				FC612FBC21EEF79B00411D0C /* NeuralNet.swift */,
+				FC612FBB21EEF79B00411D0C /* Operations.swift */,
+				FC612FBE21EEF79B00411D0C /* Random.swift */,
+				FC612FB621EEF79A00411D0C /* Storage.swift */,
+				FC612FB921EEF79B00411D0C /* Structure.swift */,
+				FC612FB521EEF79A00411D0C /* Vector.swift */,
+			);
+			path = SwiftAI;
 			sourceTree = "<group>";
 		};
 		FC7361F321E445160024624C /* Clouds */ = {
@@ -186,11 +227,11 @@
 		FCA43D8D21E6DE9200FED3E7 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC612FB221EEF78000411D0C /* SwiftAI */,
 				FCA43D8921E6CB7100FED3E7 /* SKPopMenu.swift */,
 				FC31E30921E421E3009803B0 /* SKPointsLabel.swift */,
 				FCCE1AA321E6EE9B00E44081 /* GBPageControl.h */,
 				FCCE1AA421E6EE9B00E44081 /* PageControl.swift */,
-				FC72AA1221E575270001DFFE /* FFNN.swift */,
 				FCE9433C21EAB235009D7CDF /* Alertable.swift */,
 			);
 			path = "Helper Classes";
@@ -264,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC31E2F621E41B27009803B0 /* Main.storyboard in Resources */,
-				FC73620221E45C050024624C /* Sources in Resources */,
 				FC31E2ED21E41B27009803B0 /* GameScene.sks in Resources */,
 				FC31E2F821E41B29009803B0 /* Assets.xcassets in Resources */,
 				FC31E2FB21E41B29009803B0 /* LaunchScreen.storyboard in Resources */,
@@ -305,25 +345,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC612FC621EEF79B00411D0C /* Matrix.swift in Sources */,
 				FC7361FE21E456DA0024624C /* AIScene.swift in Sources */,
 				FC72AA0D21E525150001DFFE /* SKBlock.swift in Sources */,
+				FC612FC121EEF79B00411D0C /* Vector.swift in Sources */,
 				FC72AA1121E552F80001DFFE /* SKEnemyGenerator.swift in Sources */,
 				FC7361FA21E454A10024624C /* MainMenuScene.swift in Sources */,
+				FC612FC221EEF79B00411D0C /* Storage.swift in Sources */,
+				FC612FC421EEF79B00411D0C /* Cache.swift in Sources */,
+				FC612FCA21EEF79B00411D0C /* Random.swift in Sources */,
 				FC31E30821E41CC4009803B0 /* SKFloorGenerator.swift in Sources */,
 				FC31E30A21E421E3009803B0 /* SKPointsLabel.swift in Sources */,
 				FC31E30E21E426E7009803B0 /* SKFloorBlock.swift in Sources */,
 				FCA43D8A21E6CB7100FED3E7 /* SKPopMenu.swift in Sources */,
+				FC612FC521EEF79B00411D0C /* Structure.swift in Sources */,
 				FC7361F221E444340024624C /* SKKCloudGenerator.swift in Sources */,
 				FCA43D8C21E6D5EE00FED3E7 /* AISceneWithInstructions.swift in Sources */,
 				FCCE1AA521E6EE9B00E44081 /* PageControl.swift in Sources */,
 				FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */,
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
+				FC612FC021EEF79B00411D0C /* Error.swift in Sources */,
 				FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
+				FC612FC921EEF79B00411D0C /* FFNN+Storage.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC72AA1321E575270001DFFE /* FFNN.swift in Sources */,
+				FC612FC721EEF79B00411D0C /* Operations.swift in Sources */,
+				FC612FC321EEF79B00411D0C /* Dataset.swift in Sources */,
+				FC612FC821EEF79B00411D0C /* NeuralNet.swift in Sources */,
 				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
+				FC612FBF21EEF79B00411D0C /* Activation.swift in Sources */,
 				FC31E30421E41C64009803B0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

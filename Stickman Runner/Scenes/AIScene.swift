@@ -185,8 +185,8 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         xPerSec = 150.0
         
         
-        let scene = NormalGameScene(size: size)
-        self.view?.presentScene(scene)
+       // let scene = NormalGameScene(size: size)
+       // self.view?.presentScene(scene)
         
     }
     func blinkAnimation() -> SKAction {
