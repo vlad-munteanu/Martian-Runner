@@ -151,7 +151,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
        
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
-            
+            print(closestEnemyXPos)
             closestEnemyXPos = enemyPosition.x
             if (closestEnemyXPos < mainHero.position.x)
             {
@@ -194,7 +194,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         neuralAnswers = res.answers
         print("New: \(parameters)")
         print(neuralAnswers)
-        _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.1)
+        _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.02)
         
         print("weights\(currentNeuralNetwork.getWeights())")
         
