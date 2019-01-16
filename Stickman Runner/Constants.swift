@@ -35,6 +35,6 @@ var xPerSec: CGFloat = 100.0
 
 var scoreTimerTime: TimeInterval = 1.0
 
-
+var currentName = "" 
 
 var musicOn = false
