@@ -10,9 +10,11 @@ import SpriteKit
 
 class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
     
-    let normalLabel = SKLabelNode(fontNamed: "Pixel Miners")
-    let AILabel = SKLabelNode(fontNamed: "Pixel Miners")
+    let normalLabel = SKLabelNode()
+    let AILabel = SKLabelNode()
     let highScoreLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    
+    let instructionLabel = SKLabelNode()
     let mainLabel = SKSpriteNode(imageNamed: "Martian-Runner")
     var musicButton = SKSpriteNode()
     let background = SKSpriteNode(imageNamed: "bg")
@@ -21,20 +23,27 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
     override func didMove(to view: SKView) {
     
         // set size, color, position and text of the tapStartLabel
-        normalLabel.fontSize = 24
+        normalLabel.fontSize = 42
         normalLabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        normalLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.3)
-        normalLabel.text = "Normal Mode"
+        normalLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.32)
+        normalLabel.text = "Train Network"
         normalLabel.name = "Normal"
         normalLabel.zPosition = 1
         
         // set size, color, position and text of the tapStartLabel
-        AILabel.fontSize = 24
+        AILabel.fontSize = 42
         AILabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         AILabel.position = CGPoint(x: size.width / 2, y: size.height * 0.4 )
-        AILabel.text = "AI Mode"
+        AILabel.text = "Choose Netwok"
         AILabel.name = "AI"
         AILabel.zPosition = 1
+        
+        instructionLabel.fontSize = 42
+        instructionLabel.fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        instructionLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.24 )
+        instructionLabel.text = "Learn"
+        instructionLabel.name = "learn"
+        instructionLabel.zPosition = 1
         
         mainLabel.size = CGSize(width: size.width , height: 60)
         mainLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.75 )
@@ -52,6 +61,7 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         // add the label to the scene
         addChild(normalLabel)
         addChild(AILabel)
+        addChild(instructionLabel)
         //addChild(highScoreLabel)
         addChild(mainLabel)
         
@@ -98,29 +108,6 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
         }
     }
     
-//    func setupMenu() {
-//        networkPop = SKPopMenu(numberOfSections:6, sceneFrame: self.frame)
-//        networkPop.popMenuDelegate = self
-//        
-//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-//            var counter = 1
-//            
-//            if let temp = value as? [Float] {
-//                print("\(key) = \(value) \n")
-//                var tempLabel = SKLabelNode(fontNamed: "Pixel Miners")
-//                tempLabel.name = String(key)
-//                tempLabel.text = String(key)
-//                tempLabel.fontSize = 15
-//                tempLabel.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                
-//                networkPop.setSection(counter, text:"normal", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), label: tempLabel)
-//                counter += 1
-//            }
-//        }
-//        networkPop.zPosition = 3
-//        addChild(networkPop)
-//    }
-    
     func popMenuDidAppear() {
         // pop menu appeared
     }
@@ -149,6 +136,8 @@ class MainMenuScene : SKScene, SKPopMenuDelegate, Alertable {
                     musicButton.texture = SKTexture(imageNamed: "musicOn")
                     musicOn = true
                 }
+            } else if name == "instructions" {
+                
             }
             
         }
