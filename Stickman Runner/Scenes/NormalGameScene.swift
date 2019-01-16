@@ -123,6 +123,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         if(mainHero.position.y > brickHeight) {
         } else {
+            parameters.append([Float(closestEnemyXPos)])
+            neuralAnswers.append([1])
+            indexArray.append(Float(closestEnemyXPos))
             mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
         }
         let touch:UITouch = touches.first! as UITouch
@@ -172,11 +175,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        if closestEnemyXPos != 0.0 && !(indexArray.contains(Float(closestEnemyXPos))) {
-            parameters.append([Float(closestEnemyXPos)])
-            neuralAnswers.append([0])
-        }
-        
     }
     
     func gameOver() {
@@ -207,49 +205,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         let scene = ChooseNetwork(size: size)
         self.view?.presentScene(scene)
         
-        
-       // resetGame()
-        
-        
-    }
     
-    
-//    func resetGame() {
-//        //Creating the new scene
-//        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-//        enemyGenerator.onCollision()
-//        closestEnemyXPos = 0.0
-//
-//        LevelNumber = 0
-//        likelyhoodOfWater = 0.01
-//        scoreTimerTime = 1
-//        xPerSec = 150.0
-//
-//
-//        let scene = NormalGameScene(size: size)
-//        self.view?.presentScene(scene)
-//
-//    }
-    
-    func blinkAnimation() -> SKAction {
         
-        let fadeOut = SKAction.fadeAlpha(to: 0, duration: 0.6)
-        let fadeIn = SKAction.fadeAlpha(to: 1, duration: 0.6)
         
-        let blink = SKAction.repeatForever(SKAction.sequence([fadeOut,fadeIn]))
-        return blink
-    }
-    
-    @objc func setUp() {
-        removeItems()
-    }
-    
-    func removeItems() {
-        for child in children {
-            if child.position.y <= -self.size.height-100 {
-                child.removeFromParent()
-            }
-        }
     }
     
     
@@ -262,6 +220,12 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
         }
+        
+        if closestEnemyXPos != 0.0 && !(indexArray.contains(Float(closestEnemyXPos))) {
+            parameters.append([Float(closestEnemyXPos)])
+            neuralAnswers.append([0])
+        }
+        
         checkScore()
         
     }
