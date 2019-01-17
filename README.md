@@ -14,4 +14,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 ## Acknowledgments
 
 * Collin Hundley for SwiftAI (https://github.com/Swift-AI/Swift-AI)
+* crashoverride777 for Alert code in Spritekit (https://stackoverflow.com/questions/39557344/swift-spritekit-how-to-present-alert-view-in-gamescene)
 * The comp sci bros and Snyder for inspiration
