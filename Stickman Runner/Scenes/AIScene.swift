@@ -10,12 +10,8 @@ import SpriteKit
 import GameplayKit
 
 
-
-
 class AIScene: SKScene, SKPhysicsContactDelegate {
    
-    //AI Stuff
-    var isMachinePlaying = false
     
     var isOnGround = true
 
@@ -38,7 +34,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -13.0)
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -15.0)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -96,12 +92,11 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         //pauseButton
         pauseLabel.fontSize = 16
         pauseLabel.fontColor = SKColor.black
-        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.93)
+        pauseLabel.position = CGPoint(x: size.width * 0.9, y: size.height * 0.9)
         pauseLabel.text = "Home"
         pauseLabel.name = "pause"
         
         addChild(pauseLabel)
-        
         
     }
     
@@ -109,10 +104,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if(mainHero.position.y > brickHeight) {
-        } else {
-//            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
-        }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
@@ -133,9 +124,22 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func checkScore() {
-    
+        
+        
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
+            
+            if(enemyPosition.x < 200) {
+                let networkValue = try! currentNeuralNetwork.update(inputs: [Float(closestEnemyXPos)]).first!
+                let networkWantsToJump = networkValue > 0.99
+                print("Network value: \(networkValue) \(networkWantsToJump)")
+                if networkWantsToJump && isOnGround{
+                    mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 20_000))
+                    isOnGround = false
+                } else if !(networkWantsToJump) {
+                    isOnGround = true
+                }
+            }
             
             closestEnemyXPos = enemyPosition.x
             if (closestEnemyXPos < mainHero.position.x)
@@ -172,16 +176,6 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         
         print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
        
-        let scene = MainMenuScene(size: size)
-        self.view?.presentScene(scene)
-        
-        
-    }
-    
-    
-    func resetGame() {
-        //Creating the new scene
-        // let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         enemyGenerator.onCollision()
         closestEnemy = 0
         
@@ -190,17 +184,17 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         scoreTimerTime = 1
         xPerSec = 150.0
         
+        let scene = MainMenuScene(size: size)
+        self.view?.presentScene(scene)
         
-       // let scene = NormalGameScene(size: size)
-       // self.view?.presentScene(scene)
+        
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         //make sure stickman stays in place
         mainHero.position.x = size.width*0.15
         if(mainHero.position.y < -size.height) {
-            resetGame()
+            gameOver()
         }
         if(mainHero.position.y >= size.height) {
             mainHero.position.y = size.height - mainHero.size.height
@@ -212,15 +206,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         }
         checkScore()
         
-        let networkValue = try! currentNeuralNetwork.update(inputs: [Float(closestEnemyXPos)]).first!
-        let networkWantsToJump = networkValue > 0.99
-        print("Network value: \(networkValue) \(networkWantsToJump)")
-        if networkWantsToJump && isOnGround{
-           mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
-            isOnGround = false
-        } else if !(networkWantsToJump) {
-            isOnGround = true
-        }
+       
     }
 }
 

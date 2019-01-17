@@ -11,12 +11,14 @@ import GameplayKit
 
 
 var currentNeuralNetwork = FFNN(inputs: 1, hidden: 300, outputs: 1)
-var parameters: [[Float]] = []
-var indexArray: [Float] = []
-var neuralAnswers: [[Float]] = []
 
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
+    //AI Stuff
+    var parameters: [[Float]] = []
+   // var indexArray: [Float] = []
+    var neuralAnswers: [[Float]] = []
+
     var mainHero: SKStickMan!
     var enemyGenerator: SKEnemyGenerator!
     
@@ -32,6 +34,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     var generationTimer: Timer?
 
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
+    var isOnGround = true
     
 
     
@@ -44,7 +47,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -13.0)
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -15.0)
     }
     
     
@@ -121,12 +124,12 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        parameters.append([Float(closestEnemyXPos)])
+        neuralAnswers.append([1])
+        //indexArray.append(Float(closestEnemyXPos))
         if(mainHero.position.y > brickHeight) {
         } else {
-            parameters.append([Float(closestEnemyXPos)])
-            neuralAnswers.append([1])
-            indexArray.append(Float(closestEnemyXPos))
-            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 14_000))
+            mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 20_000))
         }
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
@@ -189,10 +192,10 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
         
         let res = parameters.cleanUp(withAnswers: neuralAnswers)
-        print("Old: \(parameters)")
+    
         parameters = res.this
         neuralAnswers = res.answers
-        print("New: \(parameters)")
+      
         print(neuralAnswers)
         _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.02)
         
@@ -201,6 +204,14 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         defaults.set(currentNeuralNetwork.getWeights(), forKey: currentName)
         
         print("going to AI Scene now")
+        
+        enemyGenerator.onCollision()
+        closestEnemyXPos = 0
+        
+        LevelNumber = 0
+        likelyhoodOfWater = 0.01
+        scoreTimerTime = 1
+        xPerSec = 150.0
         
         let scene = ChooseNetwork(size: size)
         self.view?.presentScene(scene)
@@ -221,12 +232,21 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             mainHero.position.y = size.height - mainHero.size.height
         }
         
-        if closestEnemyXPos != 0.0 && !(indexArray.contains(Float(closestEnemyXPos))) {
-            parameters.append([Float(closestEnemyXPos)])
-            neuralAnswers.append([0])
+        if(mainHero.position.y > brickHeight) {
+            isOnGround = false
+        } else {
+            isOnGround = true
         }
         
+        
+        parameters.append([Float(closestEnemyXPos)])
+        neuralAnswers.append([0])
+//        if !(indexArray.contains(Float(closestEnemyXPos))) {
+//
+//        }
+        
         checkScore()
+        print(neuralAnswers.last ?? "")
         
     }
 }
@@ -246,6 +266,9 @@ extension UIColor {
     }
 }
 
+func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+    return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+}
 extension Array {
     
     func sample() -> (ele: Element, index: Int) {

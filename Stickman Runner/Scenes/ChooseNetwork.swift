@@ -13,6 +13,7 @@ class ChooseNetwork : SKScene, Alertable{
     var setOfLabels = [SKLabelNode()]
     let pauseLabel = SKLabelNode()
     let removeLabel = SKLabelNode()
+    let removeAllLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
         
@@ -44,7 +45,7 @@ class ChooseNetwork : SKScene, Alertable{
         }
         
         if(counter == 0) {
-            setOfLabels.append(SKLabelNode(text: "No_networks_found!"))
+            setOfLabels.append(SKLabelNode(text: "0 networks found!"))
             setOfLabels.last!.name = "no network"
             setOfLabels.last!.fontSize = 30
             setOfLabels.last!.horizontalAlignmentMode = .left
@@ -65,11 +66,21 @@ class ChooseNetwork : SKScene, Alertable{
         
         removeLabel.fontSize = 20
         removeLabel.fontColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        removeLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.1)
+        removeLabel.position = CGPoint(x: size.width * 0.7, y: size.height * 0.1)
         removeLabel.text = "Remove A Network"
         removeLabel.name = "remove"
         
         addChild(removeLabel)
+        
+        
+        
+        removeAllLabel.fontSize = 20
+        removeAllLabel.fontColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        removeAllLabel.position = CGPoint(x: size.width * 0.2, y: size.height * 0.1)
+        removeAllLabel.text = "Remove All"
+        removeAllLabel.name = "remove2"
+        
+        addChild(removeAllLabel)
         
     }
     
@@ -85,9 +96,18 @@ class ChooseNetwork : SKScene, Alertable{
                 self.view?.presentScene(scene)
             } else if name == "remove" {
                 showAlert(withTitle: "Remove Network", message: "Enter name of network you would like to remove:")
+            } else if name == "remove2" {
+                for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+                    
+                    if let temp = value as? [Float] {
+                        UserDefaults.standard.removeObject(forKey: key)
+                    }
+                }
+                let scene = ChooseNetwork(size: self.size)
+                self.view?.presentScene(scene)
             } else {
                 currentName = name
-                //_ = try! currentNeuralNetwork.resetWithWeights(UserDefaults.standard.array(forKey: name) as! [Float])
+                _ = try! currentNeuralNetwork.resetWithWeights(UserDefaults.standard.array(forKey: name) as! [Float])
                 let scene = AIScene(size: size)
                 self.view?.presentScene(scene)
             }
