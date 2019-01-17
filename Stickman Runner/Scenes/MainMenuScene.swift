@@ -60,7 +60,7 @@ class MainMenuScene : SKScene, Alertable {
         // add the label to the scene
         addChild(normalLabel)
         addChild(AILabel)
-        addChild(instructionLabel)
+       // addChild(instructionLabel)
         //addChild(highScoreLabel)
         addChild(mainLabel)
         

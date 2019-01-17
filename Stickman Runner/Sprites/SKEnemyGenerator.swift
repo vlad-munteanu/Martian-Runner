@@ -20,9 +20,9 @@ class SKEnemyGenerator: SKSpriteNode {
         for i in 0...3 {
             var addNum: CGFloat = 100
             if(allEnemies.count > 0 ) {
-                var calc = (Int)((pow(600,exponent)))
+                var calc = (Int)((pow(800,exponent)))
             
-                addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...4000))
+                addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...2400))
             }
             
             if(i == 0) {
@@ -42,8 +42,8 @@ class SKEnemyGenerator: SKSpriteNode {
     }
     
     func calcTime() {
-        if(enemyTime >= 0.5) {
-            enemyTime -= 0.08
+        if(enemyTime >= 0.7) {
+            enemyTime -= 0.1
             if exponent < 1.22{
                 exponent += 0.02
             }

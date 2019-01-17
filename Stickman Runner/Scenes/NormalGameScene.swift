@@ -16,7 +16,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     
     //AI Stuff
     var parameters: [[Float]] = []
-   // var indexArray: [Float] = []
+    var indexArray: [Float] = []
     var neuralAnswers: [[Float]] = []
 
     var mainHero: SKStickMan!
@@ -47,7 +47,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -15.0)
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -20.0)
     }
     
     
@@ -126,7 +126,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         parameters.append([Float(closestEnemyXPos)])
         neuralAnswers.append([1])
-        //indexArray.append(Float(closestEnemyXPos))
+        indexArray.append(Float(closestEnemyXPos))
         if(mainHero.position.y > brickHeight) {
         } else {
             mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 20_000))
@@ -239,11 +239,11 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        parameters.append([Float(closestEnemyXPos)])
-        neuralAnswers.append([0])
-//        if !(indexArray.contains(Float(closestEnemyXPos))) {
-//
-//        }
+        
+        if !(indexArray.contains(Float(closestEnemyXPos))) {
+            parameters.append([Float(closestEnemyXPos)])
+            neuralAnswers.append([0])
+       }
         
         checkScore()
         print(neuralAnswers.last ?? "")
