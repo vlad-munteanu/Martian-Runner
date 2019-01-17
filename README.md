@@ -3,6 +3,8 @@
 My iOS app for my IB HL Computer Science IA. The game is inspired by Mario Run and implements SwiftAI to create a neural network, 
 copying the gameplay style of the user.
 
+![alt text](https://github.com/vlad-munteanu/Stickman-Runner/blob/master/BG.png)
+
 ## Authors
 
 * **Vlad Munteanu**
