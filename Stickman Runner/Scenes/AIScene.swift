@@ -34,7 +34,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         addEveryIntialThing()
         physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -15.0)
+        self.physicsWorld.gravity = CGVector(dx: 0.0,dy: -20.0)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -129,7 +129,7 @@ class AIScene: SKScene, SKPhysicsContactDelegate {
         if enemyGenerator.allEnemies.count > 0 {
             let enemyPosition = enemyGenerator.convert(enemyGenerator.allEnemies[0].position, to: self)
             
-            if(enemyPosition.x < 200) {
+            if(enemyPosition.x < 150) {
                 let networkValue = try! currentNeuralNetwork.update(inputs: [Float(closestEnemyXPos)]).first!
                 let networkWantsToJump = networkValue > 0.99
                 print("Network value: \(networkValue) \(networkWantsToJump)")
