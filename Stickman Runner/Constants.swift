@@ -17,7 +17,10 @@ let brickCategory: UInt32 = 0x1 << 3
 
 var LevelNumber: Int = 0 {
     didSet {
-        xPerSec += 20
+        
+        if(xPerSec < 40) {
+            xPerSec += 20
+        }
     }
 }
 
