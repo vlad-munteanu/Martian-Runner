@@ -20,21 +20,30 @@ class SKEnemyGenerator: SKSpriteNode {
         for i in 0...3 {
             var addNum: CGFloat = 100
             if(allEnemies.count > 0 ) {
-                var calc = (Int)((pow(400,exponent)))
+                var calc = (Int)((pow(600,exponent)))
             
-                addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...1800))
+                addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...4000))
             }
             
-            let newEnemy = SKEnemy(post: CGPoint(x: size.width * 2 + addNum ,y: size.height*0.2), time: enemyTime)
-            addChild(newEnemy)
-            newEnemy.run()
-            allEnemies.append(newEnemy)
+            if(i == 0) {
+                let newEnemy = SKEnemy(post: CGPoint(x: size.width * 2 + CGFloat(Int.random(in: 100...300)) ,y: size.height*0.2), time: enemyTime)
+                addChild(newEnemy)
+                newEnemy.run()
+                allEnemies.append(newEnemy)
+            } else {
+                let newEnemy = SKEnemy(post: CGPoint(x: size.width * 2 + addNum ,y: size.height*0.2), time: enemyTime)
+                addChild(newEnemy)
+                newEnemy.run()
+                allEnemies.append(newEnemy)
+            }
+            
+            
         }
     }
     
     func calcTime() {
         if(enemyTime >= 0.5) {
-            enemyTime -= 0.15
+            enemyTime -= 0.08
             if exponent < 1.22{
                 exponent += 0.02
             }
