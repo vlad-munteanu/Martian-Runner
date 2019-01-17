@@ -1,6 +1,0 @@
-framework module Pods_Stickman_Runner {
-  umbrella header "Pods-Stickman Runner-umbrella.h"
-
-  export *
-  module * { export * }
-}
