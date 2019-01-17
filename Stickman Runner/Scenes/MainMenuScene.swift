@@ -44,6 +44,18 @@ class MainMenuScene : SKScene, Alertable {
         instructionLabel.name = "learn"
         instructionLabel.zPosition = 1
         
+        highScoreLabel.fontSize = 15
+        highScoreLabel.fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        highScoreLabel.position = CGPoint(x: size.width * 0.26 , y: size.height * 0.015 )
+        
+        if (UserDefaults.standard.integer(forKey: "highscore")) != nil {
+            highScoreLabel.text = "High Score: \(UserDefaults.standard.integer(forKey: "highscore"))"
+        } else {
+            highScoreLabel.text = "High Score: 0"
+        }
+        
+        highScoreLabel.zPosition = 1
+        
         mainLabel.size = CGSize(width: size.width , height: 60)
         mainLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.75 )
         mainLabel.name = "sicko"
@@ -61,7 +73,7 @@ class MainMenuScene : SKScene, Alertable {
         addChild(normalLabel)
         addChild(AILabel)
        // addChild(instructionLabel)
-        //addChild(highScoreLabel)
+        addChild(highScoreLabel)
         addChild(mainLabel)
         
         // set the background

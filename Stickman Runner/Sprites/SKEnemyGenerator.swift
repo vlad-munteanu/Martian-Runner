@@ -53,7 +53,6 @@ class SKEnemyGenerator: SKSpriteNode {
 
     
     func onCollision() {
-        stopGeneratingEnemies()
         for enemy in allEnemies {
             enemy.removeFromParent()
         }
@@ -68,12 +67,6 @@ class SKEnemyGenerator: SKSpriteNode {
         allEnemies.removeAll()
         calcTime()
         generateBadGuys()
-    }
-    
-   
-    
-    func stopGeneratingEnemies() {
-      
     }
     
 }
