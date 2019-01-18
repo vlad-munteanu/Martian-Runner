@@ -32,7 +32,7 @@ extension Alertable where Self: SKScene {
                 self.view?.presentScene(scene)
             } else {
                 if(textField.text != "") {
-                    print("Text field: \(textField.text)")
+                    print("Text field: \(textField.text ?? "")")
                     currentName = textField.text!
                     let scene = NormalGameScene(size: self.size)
                     self.view?.presentScene(scene)
