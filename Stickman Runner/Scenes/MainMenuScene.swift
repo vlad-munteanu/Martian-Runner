@@ -66,7 +66,7 @@ class MainMenuScene : SKScene, Alertable {
         musicButton.position = CGPoint(x: size.width - 40, y: size.height*0.93)
         musicButton.zPosition = 1
         musicButton.name = "music"
-        addChild(musicButton)
+        //addChild(musicButton)
         
         
         // add the label to the scene
