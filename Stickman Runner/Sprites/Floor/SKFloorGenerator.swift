@@ -41,7 +41,7 @@ class SKFloorGenerator: SKSpriteNode {
         }
        
         //Moves ground left by one whole screen
-        var moveLeft = SKAction.moveBy(x: -(size.width)*2, y: 0, duration: adjustedDuration)
+        let moveLeft = SKAction.moveBy(x: -(size.width)*2, y: 0, duration: adjustedDuration)
         
         //Teleports ground back to initial position
         let resetPosition = SKAction.moveTo(x: -size.width , duration: 0)

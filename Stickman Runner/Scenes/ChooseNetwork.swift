@@ -38,7 +38,10 @@ class ChooseNetwork : SKScene, Alertable{
                 setOfLabels.last!.fontSize = 50
                 setOfLabels.last!.fontColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
                 setOfLabels.last!.position = CGPoint(x: size.width / 2, y: size.height * xPosVar)
+                
+                if(counter <= 6) {
                 addChild(setOfLabels.last!)
+                }
                 counter += 1
                 xPosVar -= 0.1
             }

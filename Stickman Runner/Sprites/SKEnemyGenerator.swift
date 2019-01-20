@@ -20,7 +20,7 @@ class SKEnemyGenerator: SKSpriteNode {
         for i in 0...3 {
             var addNum: CGFloat = 100
             if(allEnemies.count > 0 ) {
-                var calc = (Int)((pow(800,exponent)))
+                let calc = (Int)((pow(800,exponent)))
             
                 addNum = (allEnemies.last?.position.x)! + CGFloat(Int.random(in: calc...2400))
             }
