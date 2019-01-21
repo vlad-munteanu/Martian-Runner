@@ -197,7 +197,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         neuralAnswers = res.answers
       
         print(neuralAnswers)
-        _ = try! currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.02)
+        _ = try? currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.02)
         
         print("weights\(currentNeuralNetwork.getWeights())")
         
