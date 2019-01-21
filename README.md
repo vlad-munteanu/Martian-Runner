@@ -13,6 +13,13 @@ copying the gameplay style of the user.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
+## TO_DO 
+- [ ] Add Apple Watch App
+- [ ] Add instructions 
+- [ ] Publish to App Store
+- [ ] Allow users to share networks
+
+
 ## Acknowledgments
 
 * Collin Hundley for SwiftAI (https://github.com/Swift-AI/Swift-AI)
