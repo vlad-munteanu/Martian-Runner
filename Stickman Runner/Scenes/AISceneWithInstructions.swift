@@ -13,13 +13,13 @@ import GameplayKit
 class AISceneWithInstructions: SKScene {
      let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
-    var pageControl:PageControl!
+    //var pageControl:PageControl!
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        pageControl = PageControl(scene: self)
+      //  pageControl = PageControl(scene: self)
         addContent()
-        pageControl.enable(numberOfPages: 4)
+        //pageControl.enable(numberOfPages: 4)
         addPause()
     }
     
@@ -41,7 +41,7 @@ class AISceneWithInstructions: SKScene {
             let x = self.size.width / 2.0 + self.size.width * CGFloat(i)
             let y = self.size.height / 2.0
             node.position = CGPoint(x:x, y:y)
-            pageControl.addChild(node)
+           // pageControl.addChild(node)
         }
     }
     
@@ -49,17 +49,17 @@ class AISceneWithInstructions: SKScene {
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
-        if pageControl.handleTouch(touch: touch) {
-            //no op
-        }
-        else {
-            if let name = touchedNode.name {
-                if name == "pause" {
-                    let scene = MainMenuScene(size: size)
-                    self.view?.presentScene(scene)
-                }
-                
-            }
-        }
+//        //if pageControl.handleTouch(touch: touch) {
+//            //no op
+//        }
+//        //else {
+//            if let name = touchedNode.name {
+//                if name == "pause" {
+//                    let scene = MainMenuScene(size: size)
+//                    self.view?.presentScene(scene)
+//                }
+//
+//            }
+       // }
     }
 }
