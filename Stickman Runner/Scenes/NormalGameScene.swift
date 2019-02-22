@@ -184,11 +184,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         scoreTimerTime = 1
         xPerSec = 150.0
         
-        //TO-DO: Change Scene it switches to
+        let scene = NormalGameScene(size: size)
+        self.view?.presentScene(scene)
         
-//        let scene = ChooseNetwork(size: size)
-//        self.view?.presentScene(scene)
-    
     }
     
     
@@ -227,57 +225,3 @@ extension UIColor {
                        alpha: 1.0)
     }
 }
-
-func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
-    return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
-}
-extension Array {
-    
-    func sample() -> (ele: Element, index: Int) {
-        let randomIndex = Int(arc4random()) % count
-        return (ele: self[randomIndex], index: randomIndex)
-    }
-    
-    func cleanUp(withAnswers: [[Float]]) -> (this: [[Float]], answers: [[Float]]) {
-        var amountZero = 0
-        var amountOne = 0
-        var result: (this: [[Float]], answers: [[Float]]) = (this: [], answers: [])
-        var this: [[Float]] = []
-        var answers: [[Float]] = []
-        for (index, _) in self.enumerated() {
-            if withAnswers[index] == [0] {
-                amountZero += 1
-            } else if withAnswers[index] == [1] {
-                amountOne += 1
-            }
-        }
-        for i in self {
-            this.append(i as! [Float])
-        }
-        answers = withAnswers
-        while (amountOne) < amountZero {
-            var continueIt = true
-            for (index, _) in this.enumerated() {
-                if continueIt {
-                    if answers[index] == [0] {
-                        answers.remove(at: index)
-                        this.remove(at: index)
-                        continueIt = false
-                    }
-                }
-            }
-            amountOne = 0
-            amountZero = 0
-            for (index, _) in this.enumerated() {
-                if answers[index] == [0] {
-                    amountZero += 1
-                } else if answers[index] == [1] {
-                    amountOne += 1
-                }
-            }
-        }
-        result = (this: this, answers: answers)
-        return result
-    }
-}
-

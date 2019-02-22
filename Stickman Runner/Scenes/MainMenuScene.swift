@@ -8,6 +8,9 @@
 
 import SpriteKit
 
+
+//TO-DO: Fix button for playing, make more comprehensive
+
 class MainMenuScene : SKScene, Alertable {
     
     let playLabel = SKLabelNode()
