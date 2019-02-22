@@ -10,8 +10,7 @@ import SpriteKit
 
 class MainMenuScene : SKScene, Alertable {
     
-    let normalLabel = SKLabelNode()
-    let AILabel = SKLabelNode()
+    let playLabel = SKLabelNode()
     let highScoreLabel = SKLabelNode(fontNamed: "Pixel Miners")
     
     let instructionLabel = SKLabelNode()
@@ -22,27 +21,12 @@ class MainMenuScene : SKScene, Alertable {
     override func didMove(to view: SKView) {
     
         // set size, color, position and text of the tapStartLabel
-        normalLabel.fontSize = 42
-        normalLabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        normalLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.32)
-        normalLabel.text = "Train Network"
-        normalLabel.name = "Normal"
-        normalLabel.zPosition = 1
-        
-        // set size, color, position and text of the tapStartLabel
-        AILabel.fontSize = 42
-        AILabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        AILabel.position = CGPoint(x: size.width / 2, y: size.height * 0.4 )
-        AILabel.text = "Choose Netwok"
-        AILabel.name = "choose"
-        AILabel.zPosition = 1
-        
-        instructionLabel.fontSize = 42
-        instructionLabel.fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        instructionLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.24 )
-        instructionLabel.text = "Learn"
-        instructionLabel.name = "learn"
-        instructionLabel.zPosition = 1
+        playLabel.fontSize = 42
+        playLabel.fontColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        playLabel.position = CGPoint(x: size.width / 2, y: size.height * 0.32)
+        playLabel.text = "Play Game"
+        playLabel.name = "play"
+        playLabel.zPosition = 1
         
         highScoreLabel.fontSize = 15
         highScoreLabel.fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -70,19 +54,19 @@ class MainMenuScene : SKScene, Alertable {
         
         
         // add the label to the scene
-        addChild(normalLabel)
-        addChild(AILabel)
-       // addChild(instructionLabel)
+        addChild(playLabel)
+       
         addChild(highScoreLabel)
         addChild(mainLabel)
         
         // set the background
         background.size = CGSize(width: size.width, height: size.height)
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-  
+        
         addChild(background)
     }
     
+    //TO-DO: Fix transitions to new scenes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
         let touch:UITouch = touches.first! as UITouch
@@ -90,10 +74,8 @@ class MainMenuScene : SKScene, Alertable {
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
             if name == "choose" {
-                let scene = ChooseNetwork(size: size)
-                self.view?.presentScene(scene)
-            } else if name == "Normal" {
-                showAlert(withTitle: "Name", message: "Enter your name:")
+//                let scene = ChooseNetwork(size: size)
+//                self.view?.presentScene(scene)
             } else if name == "music" {
                 print("Music changed")
                 if (musicOn == true) {
@@ -104,8 +86,8 @@ class MainMenuScene : SKScene, Alertable {
                     musicOn = true
                 }
             } else if name == "learn" {
-                let scene = AISceneWithInstructions(size: size)
-                self.view?.presentScene(scene)
+//                let scene = AISceneWithInstructions(size: size)
+//                self.view?.presentScene(scene)
             }
             
         }

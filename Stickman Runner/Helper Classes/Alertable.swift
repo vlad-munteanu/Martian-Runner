@@ -25,20 +25,15 @@ extension Alertable where Self: SKScene {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             let textField = alertController.textFields![0] as UITextField
             
-            if(alertController.title == "Remove Network") {
-                let defaults = UserDefaults.standard
-                defaults.removeObject(forKey: textField.text ?? "")
-                let scene = ChooseNetwork(size: self.size)
+            
+            if(textField.text != "") {
+                print("Text field: \(textField.text ?? "")")
+                currentName = textField.text!
+                let scene = NormalGameScene(size: self.size)
                 self.view?.presentScene(scene)
-            } else {
-                if(textField.text != "") {
-                    print("Text field: \(textField.text ?? "")")
-                    currentName = textField.text!
-                    let scene = NormalGameScene(size: self.size)
-                    self.view?.presentScene(scene)
-                }
             }
-           
+            
+            
         }))
         
         view?.window?.rootViewController?.present(alertController, animated: true)

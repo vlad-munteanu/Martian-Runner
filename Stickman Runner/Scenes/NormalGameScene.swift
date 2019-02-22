@@ -10,14 +10,7 @@ import SpriteKit
 import GameplayKit
 
 
-var currentNeuralNetwork = FFNN(inputs: 1, hidden: 300, outputs: 1)
-
 class NormalGameScene: SKScene, SKPhysicsContactDelegate {
-    
-    //AI Stuff
-    var parameters: [[Float]] = []
-    var indexArray: [Float] = []
-    var neuralAnswers: [[Float]] = []
 
     var mainHero: SKStickMan!
     var enemyGenerator: SKEnemyGenerator!
@@ -85,7 +78,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         enemyGenerator.generateBadGuys()
         addChild(enemyGenerator)
         
-        
         //floor
         floorGenerator = SKFloorGenerator(size: CGSize(width: view!.frame.width, height: brickHeight))
         floorGenerator.start()
@@ -96,8 +88,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = SKPointsLabel(num: 0)
         scoreLabel.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
         addChild(scoreLabel)
-        
-        
         
         //Creating the Clouds
         cloudGenerator = SKCloudGenerator(texture: nil, color: UIColor.clear, size: view!.frame.size)
@@ -115,18 +105,10 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(pauseLabel)
         
-        
-        
-        
     }
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        parameters.append([Float(closestEnemyXPos)])
-        neuralAnswers.append([1])
-        indexArray.append(Float(closestEnemyXPos))
         if(mainHero.position.y > brickHeight) {
         } else {
             mainHero.physicsBody?.applyForce(CGVector(dx: 0, dy: 20_000))
@@ -190,19 +172,8 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
-        
-        let res = parameters.cleanUp(withAnswers: neuralAnswers)
-    
-        parameters = res.this
-        neuralAnswers = res.answers
+       
       
-        print(neuralAnswers)
-        _ = try? currentNeuralNetwork.train(inputs: parameters, answers: neuralAnswers, testInputs: parameters, testAnswers: neuralAnswers, errorThreshold: 0.02)
-        
-        print("weights\(currentNeuralNetwork.getWeights())")
-        
-        defaults.set(currentNeuralNetwork.getWeights(), forKey: currentName)
-        
         print("going to AI Scene now")
         
         enemyGenerator.onCollision()
@@ -213,12 +184,11 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         scoreTimerTime = 1
         xPerSec = 150.0
         
-        let scene = ChooseNetwork(size: size)
-        self.view?.presentScene(scene)
+        //TO-DO: Change Scene it switches to
         
+//        let scene = ChooseNetwork(size: size)
+//        self.view?.presentScene(scene)
     
-        
-        
     }
     
     
@@ -238,15 +208,7 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
             isOnGround = true
         }
         
-        
-        
-        if !(indexArray.contains(Float(closestEnemyXPos))) {
-            parameters.append([Float(closestEnemyXPos)])
-            neuralAnswers.append([0])
-       }
-        
         checkScore()
-        print(neuralAnswers.last ?? "")
         
     }
 }
