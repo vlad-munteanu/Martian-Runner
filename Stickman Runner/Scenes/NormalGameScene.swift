@@ -29,13 +29,9 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
     let pauseLabel = SKLabelNode(fontNamed: "Pixel Miners")
     var isOnGround = true
     
-
-    
     var highScoreLabel: SKPointsLabel!
     
     //GameOver
-    
-    
     
     override func didMove(to view: SKView) {
         addEveryIntialThing()
@@ -172,9 +168,6 @@ class NormalGameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         print("High Score: \(UserDefaults.standard.integer(forKey: "highscore"))")
-       
-      
-        print("going to AI Scene now")
         
         enemyGenerator.onCollision()
         closestEnemyXPos = 0

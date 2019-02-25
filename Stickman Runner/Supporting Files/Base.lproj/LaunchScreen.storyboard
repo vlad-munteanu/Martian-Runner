@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⛈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X59-tg-Di4">
-                                <rect key="frame" x="20" y="190" width="374" height="672"/>
+                                <rect key="frame" x="16" y="166" width="288" height="314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="225"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                                 <size key="shadowOffset" width="-8" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-7X-joQ">
-                                <rect key="frame" x="20" y="121" width="374" height="124"/>
+                                <rect key="frame" x="16" y="97" width="288" height="71"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Les Garçons">
                                         <attributes>
@@ -44,14 +44,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="X59-tg-Di4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9I3-Td-mBe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mgr-7X-joQ" secondAttribute="bottom" constant="617" id="FcI-pO-jB0"/>
-                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="LCf-WK-Xz6"/>
-                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="leading" secondItem="X59-tg-Di4" secondAttribute="leading" id="Lj7-iM-VM5"/>
-                            <constraint firstItem="X59-tg-Di4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="cF2-6K-9LE"/>
-                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="eV8-kk-mTi"/>
-                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="owP-AF-d59"/>
-                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="trailing" secondItem="X59-tg-Di4" secondAttribute="trailing" id="zwN-0z-J6X"/>
+                            <constraint firstItem="X59-tg-Di4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8ao-RJ-Gy5"/>
+                            <constraint firstItem="X59-tg-Di4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="BeS-Wo-Ceq"/>
+                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="trailing" secondItem="X59-tg-Di4" secondAttribute="trailing" id="C3e-to-dZF"/>
+                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="KYP-n3-ux9"/>
+                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="leading" secondItem="X59-tg-Di4" secondAttribute="leading" id="lvf-3g-6m7"/>
+                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="yLl-CN-65X"/>
+                            <constraint firstItem="Mgr-7X-joQ" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="yyO-aC-Twu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

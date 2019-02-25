@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B87EA66D22237FED00CE8114 /* SKCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87EA66C22237FED00CE8114 /* SKCoin.swift */; };
+		B87EA66F22237FFE00CE8114 /* SKCoinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87EA66E22237FFE00CE8114 /* SKCoinGenerator.swift */; };
 		E8E28875C1D2C3872587C639 /* Pods_Stickman_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCA71D44B352D5947A6AAAB /* Pods_Stickman_Runner.framework */; };
 		FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2EA21E41B27009803B0 /* AppDelegate.swift */; };
 		FC31E2F121E41B27009803B0 /* NormalGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31E2F021E41B27009803B0 /* NormalGameScene.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		2371F0ED2F782DD92A073408 /* Pods-Stickman Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickman Runner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stickman Runner/Pods-Stickman Runner.release.xcconfig"; sourceTree = "<group>"; };
 		3DCA71D44B352D5947A6AAAB /* Pods_Stickman_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stickman_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B87EA66C22237FED00CE8114 /* SKCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKCoin.swift; sourceTree = "<group>"; };
+		B87EA66E22237FFE00CE8114 /* SKCoinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKCoinGenerator.swift; sourceTree = "<group>"; };
 		F268135CD5D4D09E59E722F1 /* Pods-Stickman Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stickman Runner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stickman Runner/Pods-Stickman Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		FC31E2E721E41B27009803B0 /* Stickman Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stickman Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC31E2EA21E41B27009803B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B87EA66B22237FD000CE8114 /* Coins */ = {
+			isa = PBXGroup;
+			children = (
+				B87EA66C22237FED00CE8114 /* SKCoin.swift */,
+				B87EA66E22237FFE00CE8114 /* SKCoinGenerator.swift */,
+			);
+			path = Coins;
+			sourceTree = "<group>";
+		};
 		C58C4C27C83ACDCB567DD96B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +128,7 @@
 		FC31E30221E41B7F009803B0 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B87EA66B22237FD000CE8114 /* Coins */,
 				FC73620021E459C50024624C /* Floor */,
 				FC7361F321E445160024624C /* Clouds */,
 				FC31E30521E41CB5009803B0 /* SKStickMan.swift */,
@@ -292,9 +306,11 @@
 				FC72AA0F21E552EC0001DFFE /* SKEnemy.swift in Sources */,
 				FC7361F121E444340024624C /* SKCloud.swift in Sources */,
 				FCE9433D21EAB235009D7CDF /* Alertable.swift in Sources */,
+				B87EA66D22237FED00CE8114 /* SKCoin.swift in Sources */,
 				FC31E2F321E41B27009803B0 /* GameViewController.swift in Sources */,
 				FC31E2EB21E41B27009803B0 /* AppDelegate.swift in Sources */,
 				FC31E30621E41CB5009803B0 /* SKStickMan.swift in Sources */,
+				B87EA66F22237FFE00CE8114 /* SKCoinGenerator.swift in Sources */,
 				FC31E30421E41C64009803B0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

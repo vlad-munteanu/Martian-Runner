@@ -9,7 +9,7 @@
 import SpriteKit
 
 
-//TO-DO: Fix button for playing, make more comprehensive
+//TODO: Fix button for playing, make more comprehensive
 
 class MainMenuScene : SKScene, Alertable {
     
@@ -53,7 +53,7 @@ class MainMenuScene : SKScene, Alertable {
         musicButton.position = CGPoint(x: size.width - 40, y: size.height*0.93)
         musicButton.zPosition = 1
         musicButton.name = "music"
-        //addChild(musicButton)
+        addChild(musicButton)
         
         
         // add the label to the scene
@@ -69,16 +69,16 @@ class MainMenuScene : SKScene, Alertable {
         addChild(background)
     }
     
-    //TO-DO: Fix transitions to new scenes
+    //TODO: Fix transitions to new scenes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
         let touch:UITouch = touches.first! as UITouch
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         if let name = touchedNode.name {
-            if name == "choose" {
-//                let scene = ChooseNetwork(size: size)
-//                self.view?.presentScene(scene)
+            if name == "play" {
+                let scene = NormalGameScene(size: size)
+                self.view?.presentScene(scene)
             } else if name == "music" {
                 print("Music changed")
                 if (musicOn == true) {
@@ -88,9 +88,6 @@ class MainMenuScene : SKScene, Alertable {
                     musicButton.texture = SKTexture(imageNamed: "musicOn")
                     musicOn = true
                 }
-            } else if name == "learn" {
-//                let scene = AISceneWithInstructions(size: size)
-//                self.view?.presentScene(scene)
             }
             
         }
