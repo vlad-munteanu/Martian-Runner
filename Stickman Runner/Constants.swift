@@ -13,6 +13,7 @@ let badGuyCategory: UInt32 = 0x1 << 0
 let stickManCategory: UInt32 = 0x1 << 1
 let blockCategory: UInt32 = 0x1 << 2
 let brickCategory: UInt32 = 0x1 << 3
+let coinCategory: UInt32 = 0x1 << 4
 
 
 var LevelNumber: Int = 0 {
